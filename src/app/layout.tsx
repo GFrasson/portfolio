@@ -1,9 +1,11 @@
-import { getCssText, globalCss } from '@/styles'
 import { Theme } from '@radix-ui/themes'
-import '@radix-ui/themes/styles.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
+import '@radix-ui/themes/styles.css'
 import { NavigationBar } from './components/NavigationBar'
+import { getCssText } from '@/styles'
+import { globalStyles } from '@/styles/global'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Portfólio',
 }
 
-globalCss()
+globalStyles()
 
 export default function RootLayout({
   children,
