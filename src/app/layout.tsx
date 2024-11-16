@@ -3,6 +3,7 @@ import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { NavigationBar } from './components/NavigationBar'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({
           scaling="100%"
           radius="medium"
         >
+          <NavigationBar />
           {children}
         </Theme>
       </body>
