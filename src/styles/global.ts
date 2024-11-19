@@ -8,7 +8,7 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    // backgroundColor: '$gray100',
+    // background: 'linear-gradient(180deg, $accent5, $white)',
     // color: '$gray900',
     // fontFamily: 'Roboto, sans-serif',
     '-webkit-font-smoothing': 'antialiased',

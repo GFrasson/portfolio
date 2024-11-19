@@ -1,5 +1,6 @@
 import type * as Stitches from '@stitches/react'
 import { createStitches, defaultThemeMap } from '@stitches/react'
+import { tomato, jade, amber, mauve } from '@radix-ui/colors'
 
 export const {
   styled,
@@ -23,41 +24,22 @@ export const {
       black: '#000',
       blackOverlay: 'rgba(0, 0, 0, 0.7)',
 
-      // gray100: '#E1E1E6',
-      // gray200: '#c5c5c9',
-      // gray300: '#a2a2a6',
-      // gray400: '#828285',
-      // gray900: '#151517',
+      accent1: tomato.tomato1,
+      accent2: tomato.tomato2,
+      accent3: tomato.tomato3,
+      accent4: tomato.tomato4,
+      accent5: tomato.tomato5,
+      accent6: tomato.tomato6,
+      accent7: tomato.tomato7,
+      accent8: tomato.tomato8,
+      accent9: tomato.tomato9,
+      accent10: tomato.tomato10,
+      accent11: tomato.tomato11,
+      accent12: tomato.tomato12,
 
-      blue400: '#58A4B0',
-      blue600: '#46858f',
-
-      green400: '#113B29',
-      green500: '#174933',
-      green700: '#28684A',
-      green1100: '#3DD68C',
-
-      alphaGreen400: '#11FF992D',
-      alphaGreen500: '#2BFFA23C',
-      alphaGreen700: '#77FD925D',
-      alphaGreen1100: '#46FEA5D4',
-
-      hiContrast: 'hsl(206,10%,5%)',
-      loContrast: 'white',
-
-      gray100: 'hsl(206,22%,99%)',
-      gray200: 'hsl(206,12%,97%)',
-      gray300: 'hsl(206,11%,92%)',
-      gray400: 'hsl(206,10%,84%)',
-      gray500: 'hsl(206,10%,76%)',
-      gray600: 'hsl(206,10%,44%)',
-
-      purple100: 'hsl(252,100%,99%)',
-      purple200: 'hsl(252,100%,98%)',
-      purple300: 'hsl(252,100%,94%)',
-      purple400: 'hsl(252,75%,84%)',
-      purple500: 'hsl(252,78%,60%)',
-      purple600: 'hsl(252,80%,53%)',
+      ...jade,
+      ...amber,
+      ...mauve,
     },
   },
 
