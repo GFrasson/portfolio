@@ -1,50 +1,28 @@
 'use client'
 
-import { ReactNode, useEffect, useState, WheelEvent } from 'react'
+import { ReactNode, useEffect, WheelEvent } from 'react'
 import { PageScrollSection } from '../PageScrollSection'
 import SmoothScroll from '../SmoothScroll'
 
 interface PageScrollProps {
   children: ReactNode[]
   disableScrollBar?: boolean
+  onGoToNextPage: () => void
+  onGoToBeforePage: () => void
 }
 
 export function PageScroll({
   children,
   disableScrollBar = false,
+  onGoToNextPage,
+  onGoToBeforePage,
 }: PageScrollProps) {
-  const [currentPage, setCurrentPage] = useState(0)
-
   function handleOnWheel(event: WheelEvent) {
     if (event.deltaY > 0) {
-      goToNextPage()
+      onGoToNextPage()
     } else {
-      goToBeforePage()
+      onGoToBeforePage()
     }
-  }
-
-  function goToNextPage() {
-    if (currentPage >= children.length - 1) {
-      return
-    }
-
-    setCurrentPage((state) => state + 1)
-
-    window.scrollBy({
-      top: window.innerHeight,
-    })
-  }
-
-  function goToBeforePage() {
-    if (currentPage <= 0) {
-      return
-    }
-
-    setCurrentPage((state) => state - 1)
-
-    window.scrollBy({
-      top: -window.innerHeight,
-    })
   }
 
   useEffect(() => {

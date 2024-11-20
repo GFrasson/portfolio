@@ -1,6 +1,7 @@
 import { styled } from '@/styles'
 import { Button, Heading, Text } from '@radix-ui/themes'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const PageContainer = styled('div', {
   height: '100%',
@@ -15,6 +16,12 @@ export const ProjectHeading = styled(Heading, {
 export const DescriptionText = styled(Text, {
   maxWidth: '20rem',
   textAlign: 'justify',
+})
+
+export const SeeMoreLink = styled(Link, {
+  textDecoration: 'none',
+  color: '$mauve1',
+  width: '7rem',
 })
 
 export const ShowProjectButton = styled(Button, {
