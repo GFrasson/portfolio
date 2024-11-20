@@ -1,4 +1,4 @@
-import { Button, DropdownMenu } from '@radix-ui/themes'
+import { Button, DropdownMenu, Flex, Text } from '@radix-ui/themes'
 import {
   HamburgerMenuIcon,
   Pencil1Icon,
@@ -22,14 +22,18 @@ export function NavigationBar() {
       <DropdownMenuContent>
         <DropdownMenuLink href="/">
           <DropdownMenuItem>
-            <ReaderIcon />
-            Sobre
+            <Flex gap="2" align="center">
+              <ReaderIcon />
+              <Text>Sobre</Text>
+            </Flex>
           </DropdownMenuItem>
         </DropdownMenuLink>
         <DropdownMenuLink href="/projects">
           <DropdownMenuItem>
-            <Pencil1Icon />
-            Projetos
+            <Flex gap="2" align="center">
+              <Pencil1Icon />
+              <Text>Projetos</Text>
+            </Flex>
           </DropdownMenuItem>
         </DropdownMenuLink>
       </DropdownMenuContent>

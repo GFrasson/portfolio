@@ -1,15 +1,17 @@
 import { Theme } from '@radix-ui/themes'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Solway } from 'next/font/google'
 
 import '@radix-ui/themes/styles.css'
 import { NavigationBar } from './components/NavigationBar'
 import { getCssText } from '@/styles'
 import { globalStyles } from '@/styles/global'
 
-const inter = Inter({
+const solway = Solway({
   subsets: ['latin'],
   display: 'swap',
+  weight: ['400', '700'],
+  variable: '--font-solway',
 })
 
 export const metadata: Metadata = {
@@ -32,7 +34,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: getCssText() }}
         />
       </head>
-      <body className={`${inter.className}`}>
+      <body className={`${solway.variable}`}>
         <Theme
           appearance="light"
           accentColor="tomato"

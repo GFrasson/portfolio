@@ -21,6 +21,7 @@ export default function SmoothScroll({
   const smoothProgress = useSpring(scrollYProgress, {
     mass: 0.1,
     stiffness: 50,
+    // damping
   })
 
   // The height of the content in pixels

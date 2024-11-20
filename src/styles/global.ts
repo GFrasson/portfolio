@@ -10,7 +10,13 @@ export const globalStyles = globalCss({
   body: {
     // background: 'linear-gradient(180deg, $accent5, $white)',
     // color: '$gray900',
-    // fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Solway',
     '-webkit-font-smoothing': 'antialiased',
+  },
+
+  '.radix-themes': {
+    // '--heading-font-family': 'var(--font-solway)',
+    '--default-font-family': 'var(--font-solway)',
+    '--default-font-weight': '400',
   },
 })

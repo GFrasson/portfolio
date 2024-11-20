@@ -12,8 +12,8 @@ export const NavBarBox = styled(Box, {
 
 export const DropdownMenuTrigger = styled(DropdownMenu.Trigger, {
   position: 'fixed',
-  top: '1rem',
-  left: '1rem',
+  top: '1.5rem',
+  left: '1.5rem',
   zIndex: 10,
   cursor: 'pointer',
   backgroundColor: '$accent4',
