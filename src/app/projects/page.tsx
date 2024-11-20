@@ -1,96 +1,59 @@
-'use client'
-
-import { Section, Flex, Text } from '@radix-ui/themes'
+import { Section, Flex } from '@radix-ui/themes'
 import { PageScroll } from '../components/PageScroll'
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  ArrowRightIcon,
-} from '@radix-ui/react-icons'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
 import {
   DescriptionText,
-  ChangePageButton,
   ProjectHeading,
   ProjectImage,
   ShowProjectButton,
   PageContainer,
   SeeMoreLink,
 } from './styles'
-import { useState } from 'react'
 
-interface Project {
+import PrimaryImageSrc from '../../../public/projects/estacao-m/implantacao.webp'
+import SecondaryImageSrc from '../../../public/projects/estacao-m/interior.webp'
+import { StaticImageData } from 'next/image'
+import { BeforePageButton } from './components/ChangePageButton/BeforePageButton'
+import { NextPageButton } from './components/ChangePageButton/NextPageButton'
+
+export interface Project {
   id: string
   title: string
   description: string
-  primaryImageSrc: string
-  secondaryImageSrc: string
+  primaryImageSrc: StaticImageData
+  secondaryImageSrc: StaticImageData
 }
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([
+  const projects: Project[] = [
     {
       id: '1',
       title: 'Estação M: módulo de apoio a mulheres no meio urbano',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum alias, amet eum minima autem et sequi dolorum saepe aliquam enim debitis, adipisci necessitatibus unde corporis? Modi maiores maxime ipsa.',
-      primaryImageSrc:
-        'https://plus.unsplash.com/premium_photo-1668333186821-21e0d8fd5b0c?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      secondaryImageSrc:
-        'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      primaryImageSrc: PrimaryImageSrc,
+      secondaryImageSrc: SecondaryImageSrc,
     },
     {
       id: '2',
       title: 'Estação M: módulo de apoio a mulheres no meio urbano',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum alias, amet eum minima autem et sequi dolorum saepe aliquam enim debitis, adipisci necessitatibus unde corporis? Modi maiores maxime ipsa.',
-      primaryImageSrc:
-        'https://plus.unsplash.com/premium_photo-1668333186821-21e0d8fd5b0c?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      secondaryImageSrc:
-        'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      primaryImageSrc: PrimaryImageSrc,
+      secondaryImageSrc: SecondaryImageSrc,
     },
     {
       id: '3',
       title: 'Estação M: módulo de apoio a mulheres no meio urbano',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum alias, amet eum minima autem et sequi dolorum saepe aliquam enim debitis, adipisci necessitatibus unde corporis? Modi maiores maxime ipsa.',
-      primaryImageSrc:
-        'https://plus.unsplash.com/premium_photo-1668333186821-21e0d8fd5b0c?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      secondaryImageSrc:
-        'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      primaryImageSrc: PrimaryImageSrc,
+      secondaryImageSrc: SecondaryImageSrc,
     },
-  ])
-  const [currentPage, setCurrentPage] = useState(0)
-
-  function goToNextPage() {
-    if (currentPage >= projects.length - 1) {
-      return
-    }
-
-    setCurrentPage((state) => state + 1)
-
-    window.scrollBy({
-      top: window.innerHeight,
-    })
-  }
-
-  function goToBeforePage() {
-    if (currentPage <= 0) {
-      return
-    }
-
-    setCurrentPage((state) => state - 1)
-
-    window.scrollBy({
-      top: -window.innerHeight,
-    })
-  }
+  ]
 
   return (
-    <PageScroll
-      disableScrollBar={true}
-      onGoToNextPage={goToNextPage}
-      onGoToBeforePage={goToBeforePage}
-    >
+    <PageScroll disableScrollBar={true} pagesAmount={projects.length}>
       {projects.map((project, index) => (
         <Section key={project.id} size="4" height="100%" position="relative">
           <PageContainer>
@@ -111,25 +74,13 @@ export default function Projects() {
                 </SeeMoreLink>
 
                 <Flex align="center" justify="start" gap="2">
-                  {index > 0 && (
-                    <ChangePageButton
-                      variant="surface"
-                      onClick={goToBeforePage}
-                    >
-                      <Flex align="center" justify="center" gap="1">
-                        <Text>Anterior</Text>
-                        <ArrowUpIcon />
-                      </Flex>
-                    </ChangePageButton>
-                  )}
+                  {index > 0 && <BeforePageButton currentPage={index} />}
 
                   {index < projects.length - 1 && (
-                    <ChangePageButton variant="surface" onClick={goToNextPage}>
-                      <Flex align="center" justify="center" gap="1">
-                        <Text>Próximo</Text>
-                        <ArrowDownIcon />
-                      </Flex>
-                    </ChangePageButton>
+                    <NextPageButton
+                      currentPage={index}
+                      pagesAmount={projects.length}
+                    />
                   )}
                 </Flex>
               </Flex>

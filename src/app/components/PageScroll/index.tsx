@@ -1,27 +1,28 @@
 'use client'
 
-import { ReactNode, useEffect, WheelEvent } from 'react'
+import { ReactNode, useContext, useEffect, WheelEvent } from 'react'
 import { PageScrollSection } from '../PageScrollSection'
 import SmoothScroll from '../SmoothScroll'
+import { PagesContext } from '@/app/contexts/PageContext'
 
 interface PageScrollProps {
   children: ReactNode[]
   disableScrollBar?: boolean
-  onGoToNextPage: () => void
-  onGoToBeforePage: () => void
+  pagesAmount: number
 }
 
 export function PageScroll({
   children,
   disableScrollBar = false,
-  onGoToNextPage,
-  onGoToBeforePage,
+  pagesAmount,
 }: PageScrollProps) {
-  function handleOnWheel(event: WheelEvent) {
+  const { goToNextPage, goToBeforePage } = useContext(PagesContext)
+
+  function handleOnWheel(event: WheelEvent, currentPage: number) {
     if (event.deltaY > 0) {
-      onGoToNextPage()
+      goToNextPage(currentPage, pagesAmount)
     } else {
-      onGoToBeforePage()
+      goToBeforePage(currentPage)
     }
   }
 
@@ -46,7 +47,10 @@ export function PageScroll({
   return (
     <SmoothScroll>
       {children.map((child, index) => (
-        <PageScrollSection key={index} onWheel={handleOnWheel}>
+        <PageScrollSection
+          key={index}
+          onWheel={(event) => handleOnWheel(event, index)}
+        >
           {child}
         </PageScrollSection>
       ))}

@@ -6,6 +6,7 @@ import '@radix-ui/themes/styles.css'
 import { NavigationBar } from './components/NavigationBar'
 import { getCssText } from '@/styles'
 import { globalStyles } from '@/styles/global'
+import { PagesProvider } from './contexts/PageContext'
 
 const solway = Solway({
   subsets: ['latin'],
@@ -44,7 +45,7 @@ export default function RootLayout({
           radius="medium"
         >
           <NavigationBar />
-          {children}
+          <PagesProvider>{children}</PagesProvider>
         </Theme>
       </body>
     </html>

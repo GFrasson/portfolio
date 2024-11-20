@@ -1,7 +1,8 @@
 import { styled } from '@/styles'
 import { Button, Heading, Text } from '@radix-ui/themes'
-import Image from 'next/image'
+
 import Link from 'next/link'
+import { NextImage } from '../components/NextImage'
 
 export const PageContainer = styled('div', {
   height: '100%',
@@ -30,13 +31,7 @@ export const ShowProjectButton = styled(Button, {
   cursor: 'pointer',
 })
 
-export const ChangePageButton = styled(Button, {
-  width: '7rem',
-  fontWeight: 'bold',
-  cursor: 'pointer',
-})
-
-export const ProjectImage = styled(Image, {
+export const ProjectImage = styled(NextImage, {
   position: 'absolute',
   objectFit: 'cover',
 
