@@ -1,9 +1,11 @@
 import { styled } from '@/styles'
-import { Button, Container, Heading, Text } from '@radix-ui/themes'
+import { Button, Heading, Text } from '@radix-ui/themes'
 import Image from 'next/image'
 
-export const PageContainer = styled(Container, {
+export const PageContainer = styled('div', {
   height: '100%',
+  maxWidth: '88%',
+  margin: '0 auto',
 })
 
 export const ProjectHeading = styled(Heading, {
@@ -29,10 +31,14 @@ export const ChangePageButton = styled(Button, {
 
 export const ProjectImage = styled(Image, {
   position: 'absolute',
+  objectFit: 'cover',
 
   variants: {
     type: {
       primary: {
+        width: '50%',
+        height: '75%',
+
         right: 0,
         bottom: 0,
 
@@ -41,6 +47,9 @@ export const ProjectImage = styled(Image, {
       },
 
       secondary: {
+        width: '30%',
+        height: '45%',
+
         top: 0,
         right: '35%',
         zIndex: 1,

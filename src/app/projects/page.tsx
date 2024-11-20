@@ -20,7 +20,7 @@ export default function Projects() {
   return (
     <PageScroll disableScrollBar={true}>
       <Section size="4" height="100%" position="relative">
-        <PageContainer height="100%">
+        <PageContainer>
           <Flex direction="column" justify="between" height="100%">
             <Flex direction="column" gap="8">
               <ProjectHeading>
@@ -78,7 +78,7 @@ export default function Projects() {
         </PageContainer>
       </Section>
       <Section size="4" height="100%" position="relative">
-        <PageContainer height="100%">
+        <PageContainer>
           <Flex direction="column" justify="between" height="100%">
             <Flex direction="column" gap="8">
               <ProjectHeading>
