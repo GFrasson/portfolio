@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useContext, useEffect, WheelEvent } from 'react'
+import { ReactNode, useContext, useEffect, useState, WheelEvent } from 'react'
 import SmoothScroll from '../SmoothScroll'
 import { PagesContext } from '@/app/contexts/PageContext'
 import styles from './styles.module.css'
@@ -17,13 +17,22 @@ export function PageScroll({
   pagesAmount,
 }: PageScrollProps) {
   const { goToNextPage, goToBeforePage } = useContext(PagesContext)
+  const [isScrolling, setIsScrolling] = useState(false)
 
   function handleOnWheel(event: WheelEvent, currentPage: number) {
+    if (isScrolling) {
+      return
+    }
+
+    setIsScrolling(true)
+
     if (event.deltaY > 0) {
       goToNextPage(currentPage, pagesAmount)
     } else {
       goToBeforePage(currentPage)
     }
+
+    setTimeout(() => setIsScrolling(false), 600)
   }
 
   useEffect(() => {
