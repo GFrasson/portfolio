@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={`${solway.variable}`}>
         <Theme
           appearance="light"
-          accentColor="tomato"
+          accentColor="ruby"
           grayColor="mauve"
           panelBackground="translucent"
           scaling="100%"
