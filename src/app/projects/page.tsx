@@ -91,15 +91,15 @@ export default function Projects() {
             <NextImage
               className={`${styles.projectImageSecondary} ${styles.projectImage}`}
               src={project.secondaryImageSrc}
-              width={400}
-              height={300}
+              width={1500}
+              height={1500}
               alt="Imagem principal"
             />
             <NextImage
               className={`${styles.projectImagePrimary} ${styles.projectImage}`}
               src={project.primaryImageSrc}
-              width={700}
-              height={500}
+              width={1500}
+              height={1500}
               alt="Imagem secundária"
             />
           </div>
