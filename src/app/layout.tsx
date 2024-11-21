@@ -4,9 +4,8 @@ import { Solway } from 'next/font/google'
 
 import '@radix-ui/themes/styles.css'
 import { NavigationBar } from './components/NavigationBar'
-import { getCssText } from '@/styles'
-import { globalStyles } from '@/styles/global'
 import { PagesProvider } from './contexts/PageContext'
+import '@/styles/global.css'
 
 const solway = Solway({
   subsets: ['latin'],
@@ -20,8 +19,6 @@ export const metadata: Metadata = {
   description: 'Portfólio',
 }
 
-globalStyles()
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,12 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <style
-          id="stitches"
-          dangerouslySetInnerHTML={{ __html: getCssText() }}
-        />
-      </head>
+      <head></head>
       <body className={`${solway.variable}`}>
         <Theme
           appearance="light"

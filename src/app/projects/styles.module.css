@@ -1,0 +1,57 @@
+.pageContainer {
+  height: 100%;
+  max-width: 88%;
+  margin: 0 auto;
+}
+
+.projectHeading {
+  max-width: 20rem;
+}
+
+.descriptionText {
+  max-width: 20rem;
+  text-align: justify;
+}
+
+.seeMoreLink {
+  text-decoration: none;
+  color: var(--mauve1);
+  width: 7rem;
+}
+
+.showProjectButton {
+  width: 7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.projectImage {
+  position: absolute;
+  object-fit: cover;
+}
+
+.projectImagePrimary {
+  width: 50%;
+  height: 75%;
+  right: 0;
+  bottom: 0;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.projectImageSecondary {
+  width: 30%;
+  height: 45%;
+  top: 0;
+  right: 35%;
+  z-index: 1;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  transition: ease-in-out 1s;
+}
+
+.projectImageSecondary:hover {
+  transform-origin: top left;
+  transform: scale(1.5);
+  transition: ease-in-out 1s;
+}

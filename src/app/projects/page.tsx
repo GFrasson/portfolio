@@ -1,20 +1,15 @@
-import { Section, Flex } from '@radix-ui/themes'
+import { Section, Flex, Heading, Text, Button } from '@radix-ui/themes'
 import { PageScroll } from '../components/PageScroll'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
-import {
-  DescriptionText,
-  ProjectHeading,
-  ProjectImage,
-  ShowProjectButton,
-  PageContainer,
-  SeeMoreLink,
-} from './styles'
+import styles from './styles.module.css'
 
 import PrimaryImageSrc from '../../../public/projects/estacao-m/implantacao.webp'
 import SecondaryImageSrc from '../../../public/projects/estacao-m/interior.webp'
 import { StaticImageData } from 'next/image'
 import { BeforePageButton } from './components/ChangePageButton/BeforePageButton'
 import { NextPageButton } from './components/ChangePageButton/NextPageButton'
+import Link from 'next/link'
+import { NextImage } from '../components/NextImage'
 
 export interface Project {
   id: string
@@ -56,22 +51,29 @@ export default function Projects() {
     <PageScroll disableScrollBar={true} pagesAmount={projects.length}>
       {projects.map((project, index) => (
         <Section key={project.id} size="4" height="100%" position="relative">
-          <PageContainer>
+          <div className={styles.pageContainer}>
             <Flex direction="column" justify="between" height="100%">
               <Flex direction="column" gap="8">
-                <ProjectHeading>{project.title}</ProjectHeading>
-                <DescriptionText>{project.description}</DescriptionText>
+                <Heading className={styles.projectHeading}>
+                  {project.title}
+                </Heading>
+                <Text className={styles.descriptionText}>
+                  {project.description}
+                </Text>
               </Flex>
 
               <Flex direction="column" gap="5">
-                <SeeMoreLink href={`/projects/${project.id}`}>
-                  <ShowProjectButton>
+                <Link
+                  href={`/projects/${project.id}`}
+                  className={styles.seeMoreLink}
+                >
+                  <Button className={styles.showProjectButton}>
                     <Flex align="center" justify="center" gap="1">
                       Ver mais
                       <ArrowRightIcon />
                     </Flex>
-                  </ShowProjectButton>
-                </SeeMoreLink>
+                  </Button>
+                </Link>
 
                 <Flex align="center" justify="start" gap="2">
                   {index > 0 && <BeforePageButton currentPage={index} />}
@@ -86,21 +88,21 @@ export default function Projects() {
               </Flex>
             </Flex>
 
-            <ProjectImage
-              type="secondary"
+            <NextImage
+              className={`${styles.projectImageSecondary} ${styles.projectImage}`}
               src={project.secondaryImageSrc}
               width={400}
               height={300}
               alt="Imagem principal"
             />
-            <ProjectImage
-              type="primary"
+            <NextImage
+              className={`${styles.projectImagePrimary} ${styles.projectImage}`}
               src={project.primaryImageSrc}
               width={700}
               height={500}
               alt="Imagem secundária"
             />
-          </PageContainer>
+          </div>
         </Section>
       ))}
     </PageScroll>

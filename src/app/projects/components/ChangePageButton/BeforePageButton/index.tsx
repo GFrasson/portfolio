@@ -1,10 +1,10 @@
 'use client'
 
 import { PagesContext } from '@/app/contexts/PageContext'
-import { BaseChangePageButton } from '..'
 import { useContext } from 'react'
-import { Flex, Text } from '@radix-ui/themes'
+import { Button, Flex, Text } from '@radix-ui/themes'
 import { ArrowUpIcon } from '@radix-ui/react-icons'
+import styles from '../styles.module.css'
 
 interface BeforePageButtonProps {
   currentPage: number
@@ -14,7 +14,8 @@ export function BeforePageButton({ currentPage }: BeforePageButtonProps) {
   const { goToBeforePage } = useContext(PagesContext)
 
   return (
-    <BaseChangePageButton
+    <Button
+      className={styles.baseChangePageButton}
       variant="surface"
       onClick={() => goToBeforePage(currentPage)}
     >
@@ -22,6 +23,6 @@ export function BeforePageButton({ currentPage }: BeforePageButtonProps) {
         <Text>Anterior</Text>
         <ArrowUpIcon />
       </Flex>
-    </BaseChangePageButton>
+    </Button>
   )
 }

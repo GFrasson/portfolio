@@ -1,10 +1,10 @@
 'use client'
 
 import { useContext } from 'react'
-import { BaseChangePageButton } from '..'
 import { PagesContext } from '@/app/contexts/PageContext'
-import { Flex, Text } from '@radix-ui/themes'
+import { Button, Flex, Text } from '@radix-ui/themes'
 import { ArrowDownIcon } from '@radix-ui/react-icons'
+import styles from '../styles.module.css'
 
 interface NextPageButtonProps {
   currentPage: number
@@ -18,7 +18,8 @@ export function NextPageButton({
   const { goToNextPage } = useContext(PagesContext)
 
   return (
-    <BaseChangePageButton
+    <Button
+      className={styles.baseChangePageButton}
       variant="surface"
       onClick={() => goToNextPage(currentPage, pagesAmount)}
     >
@@ -26,6 +27,6 @@ export function NextPageButton({
         <Text>Próximo</Text>
         <ArrowDownIcon />
       </Flex>
-    </BaseChangePageButton>
+    </Button>
   )
 }

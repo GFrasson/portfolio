@@ -1,0 +1,25 @@
+.dropdownMenuTrigger {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.dropdownMenuContent {
+  width: 10rem;
+}
+
+.dropdownMenuLink {
+  text-decoration: none;
+  color: var(--gray-12);
+}
+
+.dropdownMenuItem {
+  cursor: pointer;
+}
+
+.dropdownMenuItem:hover {
+  background-color: var(--accent-6);
+  color: var(--gray-12);
+}

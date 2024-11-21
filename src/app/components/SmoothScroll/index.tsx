@@ -1,8 +1,8 @@
 'use client'
 
-import { useScroll, useSpring, useTransform } from 'framer-motion'
+import { useScroll, useSpring, useTransform, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { ScrollBody } from './styles'
+import styles from './styles.module.css'
 
 interface WindowSize {
   width: number
@@ -76,9 +76,9 @@ export default function SmoothScroll({
        * The content.  If it exceeds the height of the viewport, translate its y-position to the top.
        * Its position is fixed by default and moves when the user scrolls.
        */}
-      <ScrollBody style={{ y }} ref={contentRef}>
+      <motion.div style={{ y }} ref={contentRef} className={styles.scrollBody}>
         {children}
-      </ScrollBody>
+      </motion.div>
     </>
   )
 }

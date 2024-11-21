@@ -1,9 +1,9 @@
 'use client'
 
 import { ReactNode, useContext, useEffect, WheelEvent } from 'react'
-import { PageScrollSection } from '../PageScrollSection'
 import SmoothScroll from '../SmoothScroll'
 import { PagesContext } from '@/app/contexts/PageContext'
+import styles from './styles.module.css'
 
 interface PageScrollProps {
   children: ReactNode[]
@@ -47,12 +47,13 @@ export function PageScroll({
   return (
     <SmoothScroll>
       {children.map((child, index) => (
-        <PageScrollSection
+        <section
           key={index}
           onWheel={(event) => handleOnWheel(event, index)}
+          className={styles.pageScrollSection}
         >
           {child}
-        </PageScrollSection>
+        </section>
       ))}
     </SmoothScroll>
   )

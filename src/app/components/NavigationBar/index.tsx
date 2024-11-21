@@ -4,39 +4,36 @@ import {
   Pencil1Icon,
   ReaderIcon,
 } from '@radix-ui/react-icons'
-import {
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLink,
-  DropdownMenuTrigger,
-} from './styles'
+
+import styles from './styles.module.css'
+import Link from 'next/link'
 
 export function NavigationBar() {
   return (
     <DropdownMenu.Root>
-      <DropdownMenuTrigger>
+      <DropdownMenu.Trigger className={styles.dropdownMenuTrigger}>
         <Button variant="soft">
           <HamburgerMenuIcon />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLink href="/">
-          <DropdownMenuItem>
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Content className={styles.dropdownMenuContent}>
+        <Link href="/" className={styles.dropdownMenuLink}>
+          <DropdownMenu.Item className={styles.dropdownMenuItem}>
             <Flex gap="2" align="center">
               <ReaderIcon />
               <Text>Sobre</Text>
             </Flex>
-          </DropdownMenuItem>
-        </DropdownMenuLink>
-        <DropdownMenuLink href="/projects">
-          <DropdownMenuItem>
+          </DropdownMenu.Item>
+        </Link>
+        <Link href="/projects" className={styles.dropdownMenuLink}>
+          <DropdownMenu.Item className={styles.dropdownMenuItem}>
             <Flex gap="2" align="center">
               <Pencil1Icon />
               <Text>Projetos</Text>
             </Flex>
-          </DropdownMenuItem>
-        </DropdownMenuLink>
-      </DropdownMenuContent>
+          </DropdownMenu.Item>
+        </Link>
+      </DropdownMenu.Content>
     </DropdownMenu.Root>
   )
 }
