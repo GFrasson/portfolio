@@ -1,12 +1,19 @@
 'use client'
 
-import { ReactNode, useContext, useEffect, useState, WheelEvent } from 'react'
+import {
+  Children,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+  WheelEvent,
+} from 'react'
 import SmoothScroll from '../SmoothScroll'
 import { PagesContext } from '@/app/contexts/PageContext'
 import styles from './styles.module.css'
 
 interface PageScrollProps {
-  children: ReactNode[]
+  children: ReactNode
   disableScrollBar?: boolean
   pagesAmount: number
 }
@@ -55,7 +62,7 @@ export function PageScroll({
 
   return (
     <SmoothScroll>
-      {children.map((child, index) => (
+      {Children.map(children, (child, index) => (
         <section
           key={index}
           onWheel={(event) => handleOnWheel(event, index)}

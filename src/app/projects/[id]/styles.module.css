@@ -1,0 +1,11 @@
+.pageContainer {
+  height: 100%;
+  max-width: 88%;
+  margin: 0 auto;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

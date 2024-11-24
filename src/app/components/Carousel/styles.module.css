@@ -1,0 +1,8 @@
+.swiper {
+  margin: 2rem auto;
+  width: 90%;
+  height: 35rem;
+  border-radius: var(--radius-3);
+
+  --swiper-theme-color: var(--accent-10);
+}
