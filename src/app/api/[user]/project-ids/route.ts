@@ -21,6 +21,7 @@ export async function GET(
   }
 
   const { projects } = userDatabase
+  const projectIds = projects.map((project) => project.id)
 
-  return Response.json(projects)
+  return Response.json(projectIds)
 }

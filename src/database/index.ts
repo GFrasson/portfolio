@@ -17,11 +17,12 @@ interface Database {
   [name: string]: User
 }
 
-export function getUserDatabase(user: string): User | null {
-  const database = readJsonFile(
-    path.resolve('./src/database/data.json'),
-  ) as Database
+function getFullDatabase(): Database {
+  return readJsonFile(path.resolve('./src/database/data.json')) as Database
+}
 
+export function getUserDatabase(user: string): User | null {
+  const database = getFullDatabase()
   if (!Object.prototype.hasOwnProperty.call(database, user)) {
     return null
   }

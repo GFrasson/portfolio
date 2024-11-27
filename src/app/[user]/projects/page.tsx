@@ -11,6 +11,7 @@ import { NextImage } from '../../components/NextImage'
 export interface Project {
   id: number
   title: string
+  summary: string
   description: string
   images: string[]
 }
@@ -47,13 +48,13 @@ export default async function Projects({ params }: { params: Param }) {
                   {project.title}
                 </Heading>
                 <Text className={styles.descriptionText}>
-                  {project.description}
+                  {project.summary}
                 </Text>
               </Flex>
 
               <Flex direction="column" gap="5">
                 <Link
-                  href={`/projects/${project.id}`}
+                  href={`/${params.user}/projects/${project.id}`}
                   className={styles.seeMoreLink}
                 >
                   <Button className={styles.showProjectButton}>
