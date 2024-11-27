@@ -4,7 +4,7 @@ export function ProjectSkeletonLoading() {
   return (
     <Skeleton loading={true}>
       <Heading></Heading>
-      <img src="" alt="" />
+      <div></div>
       <Text></Text>
     </Skeleton>
   )

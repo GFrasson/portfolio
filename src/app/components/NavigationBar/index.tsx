@@ -6,7 +6,7 @@ import {
 } from '@radix-ui/react-icons'
 
 import styles from './styles.module.css'
-import Link from 'next/link'
+import { UserRouterLink } from '../UserRouterLink'
 
 export function NavigationBar() {
   return (
@@ -17,22 +17,22 @@ export function NavigationBar() {
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content className={styles.dropdownMenuContent}>
-        <Link href="/" className={styles.dropdownMenuLink}>
+        <UserRouterLink route="/about" className={styles.dropdownMenuLink}>
           <DropdownMenu.Item className={styles.dropdownMenuItem}>
             <Flex gap="2" align="center">
               <ReaderIcon />
               <Text>Sobre</Text>
             </Flex>
           </DropdownMenu.Item>
-        </Link>
-        <Link href="/projects" className={styles.dropdownMenuLink}>
+        </UserRouterLink>
+        <UserRouterLink route="/projects" className={styles.dropdownMenuLink}>
           <DropdownMenu.Item className={styles.dropdownMenuItem}>
             <Flex gap="2" align="center">
               <Pencil1Icon />
               <Text>Projetos</Text>
             </Flex>
           </DropdownMenu.Item>
-        </Link>
+        </UserRouterLink>
       </DropdownMenu.Content>
     </DropdownMenu.Root>
   )

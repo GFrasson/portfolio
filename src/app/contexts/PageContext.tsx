@@ -1,10 +1,11 @@
 'use client'
 
-import { ReactNode, createContext } from 'react'
+import { ReactNode, createContext, useState } from 'react'
 
 interface PageContextType {
-  goToNextPage: (currentPage: number, lastPageIndex: number) => void
-  goToBeforePage: (currentPage: number) => void
+  goToNextPage: (lastPageIndex: number) => void
+  goToBeforePage: () => void
+  currentPage: number
 }
 
 interface PagesProviderProps {
@@ -14,31 +15,64 @@ interface PagesProviderProps {
 export const PagesContext = createContext({} as PageContextType)
 
 export function PagesProvider({ children }: PagesProviderProps) {
-  function goToNextPage(currentPage: number, pagesAmount: number) {
+  const [currentPage, setCurrentPage] = useState(0)
+
+  function goToNextPage(pagesAmount: number) {
     if (currentPage >= pagesAmount - 1) {
       return
     }
 
-    window.scrollBy({
-      top: window.innerHeight,
-    })
+    const nextPage = currentPage + 1
+
+    goToPage(nextPage)
   }
 
-  function goToBeforePage(currentPage: number) {
+  function goToBeforePage() {
     if (currentPage <= 0) {
       return
     }
 
-    window.scrollBy({
-      top: -window.innerHeight,
+    const beforePage = currentPage - 1
+    goToPage(beforePage)
+  }
+
+  function goToPage(page: number) {
+    setCurrentPage(page)
+
+    window.scrollTo({
+      top: page * window.innerHeight,
     })
   }
+
+  // function goToNextPage(currentPage: number, pagesAmount: number) {
+  //   if (currentPage >= pagesAmount - 1) {
+  //     return
+  //   }
+
+  //   window.scrollBy({
+  //     top: window.innerHeight,
+  //   })
+  // }
+
+  // function goToBeforePage(currentPage: number) {
+  //   console.log('currentPage: ', currentPage)
+  //   console.log('window.scrollY: ', window.scrollY)
+
+  //   if (currentPage <= 0) {
+  //     return
+  //   }
+
+  //   window.scrollBy({
+  //     top: -window.innerHeight,
+  //   })
+  // }
 
   return (
     <PagesContext.Provider
       value={{
         goToNextPage,
         goToBeforePage,
+        currentPage,
       }}
     >
       {children}

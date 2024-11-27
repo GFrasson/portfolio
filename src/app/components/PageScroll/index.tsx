@@ -26,7 +26,7 @@ export function PageScroll({
   const { goToNextPage, goToBeforePage } = useContext(PagesContext)
   const [isScrolling, setIsScrolling] = useState(false)
 
-  function handleOnWheel(event: WheelEvent, currentPage: number) {
+  function handleOnWheel(event: WheelEvent) {
     if (isScrolling) {
       return
     }
@@ -34,9 +34,9 @@ export function PageScroll({
     setIsScrolling(true)
 
     if (event.deltaY > 0) {
-      goToNextPage(currentPage, pagesAmount)
+      goToNextPage(pagesAmount)
     } else {
-      goToBeforePage(currentPage)
+      goToBeforePage()
     }
 
     setTimeout(() => setIsScrolling(false), 600)
@@ -65,7 +65,7 @@ export function PageScroll({
       {Children.map(children, (child, index) => (
         <section
           key={index}
-          onWheel={(event) => handleOnWheel(event, index)}
+          onWheel={(event) => handleOnWheel(event)}
           className={styles.pageScrollSection}
         >
           {child}

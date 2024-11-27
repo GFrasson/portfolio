@@ -66,13 +66,10 @@ export default async function Projects({ params }: { params: Param }) {
                 </Link>
 
                 <Flex align="center" justify="start" gap="2">
-                  {index > 0 && <BeforePageButton currentPage={index} />}
+                  {index > 0 && <BeforePageButton />}
 
                   {index < projects.length - 1 && (
-                    <NextPageButton
-                      currentPage={index}
-                      pagesAmount={projects.length}
-                    />
+                    <NextPageButton pagesAmount={projects.length} />
                   )}
                 </Flex>
               </Flex>

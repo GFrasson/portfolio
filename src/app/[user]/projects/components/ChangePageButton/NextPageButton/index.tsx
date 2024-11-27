@@ -7,21 +7,17 @@ import { ArrowDownIcon } from '@radix-ui/react-icons'
 import styles from '../styles.module.css'
 
 interface NextPageButtonProps {
-  currentPage: number
   pagesAmount: number
 }
 
-export function NextPageButton({
-  currentPage,
-  pagesAmount,
-}: NextPageButtonProps) {
+export function NextPageButton({ pagesAmount }: NextPageButtonProps) {
   const { goToNextPage } = useContext(PagesContext)
 
   return (
     <Button
       className={styles.baseChangePageButton}
       variant="surface"
-      onClick={() => goToNextPage(currentPage, pagesAmount)}
+      onClick={() => goToNextPage(pagesAmount)}
     >
       <Flex align="center" justify="center" gap="1">
         <Text>Próximo</Text>

@@ -1,8 +1,9 @@
 'use client'
 
 import { useScroll, useSpring, useTransform, motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import styles from './styles.module.css'
+import { PagesContext } from '@/app/contexts/PageContext'
 
 interface WindowSize {
   width: number
@@ -14,6 +15,8 @@ export default function SmoothScroll({
 }: {
   children: React.ReactNode
 }) {
+  const { currentPage } = useContext(PagesContext)
+
   // Scroll progress (0 to 1) of the window
   const { scrollYProgress } = useScroll()
 
@@ -21,7 +24,6 @@ export default function SmoothScroll({
   const smoothProgress = useSpring(scrollYProgress, {
     mass: 0.1,
     stiffness: 50,
-    // damping
   })
 
   // The height of the content in pixels
@@ -63,6 +65,14 @@ export default function SmoothScroll({
       window.removeEventListener('resize', handleResize)
     }
   }, [contentRef])
+
+  useEffect(() => {
+    const progress = currentPage / (contentHeight / windowSize.height - 1)
+
+    if (!Number.isNaN(progress)) {
+      scrollYProgress.set(progress)
+    }
+  }, [currentPage, contentHeight, windowSize.height, scrollYProgress])
 
   return (
     <>
