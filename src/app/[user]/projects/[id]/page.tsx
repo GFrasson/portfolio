@@ -5,6 +5,7 @@ import { Carousel } from '@/app/components/Carousel'
 import styles from './styles.module.css'
 import { Suspense } from 'react'
 import { ProjectSkeletonLoading } from './components/ProjectSkeletonLoading'
+import purify from 'isomorphic-dompurify'
 
 interface Params {
   user: string
@@ -51,6 +52,10 @@ async function getProject(params: Params): Promise<Project> {
 export default async function ProjectDetails({ params }: { params: Params }) {
   const project = await getProject(params)
 
+  function sanitizeHTML(html: string) {
+    return purify.sanitize(html, { USE_PROFILES: { html: true } })
+  }
+
   if (!project) {
     return (
       <Section size="4">
@@ -78,7 +83,11 @@ export default async function ProjectDetails({ params }: { params: Params }) {
               />
             ))}
           </Carousel>
-          <Text>{project.description}</Text>
+          <Text
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHTML(project.description),
+            }}
+          />
         </Suspense>
       </div>
     </Section>

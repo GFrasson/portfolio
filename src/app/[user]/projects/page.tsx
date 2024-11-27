@@ -36,6 +36,7 @@ async function getProjects(params: Param): Promise<Project[]> {
 
 export default async function Projects({ params }: { params: Param }) {
   const projects: Project[] = await getProjects(params)
+  const { user } = await params
 
   return (
     <PageScroll disableScrollBar={true} pagesAmount={projects.length}>
@@ -54,7 +55,7 @@ export default async function Projects({ params }: { params: Param }) {
 
               <Flex direction="column" gap="5">
                 <Link
-                  href={`/${params.user}/projects/${project.id}`}
+                  href={`/${user}/projects/${project.id}`}
                   className={styles.seeMoreLink}
                 >
                   <Button className={styles.showProjectButton}>

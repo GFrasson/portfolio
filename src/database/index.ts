@@ -4,6 +4,7 @@ import path from 'path'
 interface Project {
   id: number
   title: string
+  summary: string
   description: string
   images: string[]
 }
