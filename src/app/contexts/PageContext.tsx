@@ -44,29 +44,6 @@ export function PagesProvider({ children }: PagesProviderProps) {
     })
   }
 
-  // function goToNextPage(currentPage: number, pagesAmount: number) {
-  //   if (currentPage >= pagesAmount - 1) {
-  //     return
-  //   }
-
-  //   window.scrollBy({
-  //     top: window.innerHeight,
-  //   })
-  // }
-
-  // function goToBeforePage(currentPage: number) {
-  //   console.log('currentPage: ', currentPage)
-  //   console.log('window.scrollY: ', window.scrollY)
-
-  //   if (currentPage <= 0) {
-  //     return
-  //   }
-
-  //   window.scrollBy({
-  //     top: -window.innerHeight,
-  //   })
-  // }
-
   return (
     <PagesContext.Provider
       value={{
