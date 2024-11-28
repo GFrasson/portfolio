@@ -83,7 +83,8 @@ export default async function ProjectDetails({ params }: { params: Params }) {
               />
             ))}
           </Carousel>
-          <Text
+          <div
+            className={styles.description}
             dangerouslySetInnerHTML={{
               __html: sanitizeHTML(project.description),
             }}

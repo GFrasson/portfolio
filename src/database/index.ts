@@ -5,7 +5,7 @@ interface Project {
   id: number
   title: string
   summary: string
-  description: string
+  description: string[]
   images: string[]
 }
 

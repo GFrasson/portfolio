@@ -2,6 +2,14 @@ import { getUserDatabase } from '@/database'
 import { NextRequest } from 'next/server'
 import { marked } from 'marked'
 
+interface ProjectResponse {
+  id: number
+  title: string
+  summary: string
+  description: string
+  images: string[]
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ user: string; id: string }> },
@@ -37,9 +45,15 @@ export async function GET(
 
   const project = projects.find((project) => project.id === projectId) ?? null
 
-  if (project) {
-    project.description = await marked.parse(project.description)
+  if (!project) {
+    return Response.json(null)
   }
 
-  return Response.json(project)
+  const description = project.description.join('\n')
+  const response = {
+    ...project,
+    description: await marked.parse(description),
+  } as ProjectResponse
+
+  return Response.json(response)
 }

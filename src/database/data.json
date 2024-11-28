@@ -6,7 +6,22 @@
         "id": 1,
         "title": "1 Estação M: módulo de apoio a mulheres no meio urbano",
         "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": [
+          "O projeto busca mitigar os problemas enfrentados no dia a dia pelo corpo feminino e democratizar o uso da cidade pelas mulheres. Tem a segurança e o acolhimento como conceitos principais. Propõe-se a construção de um espaço seguro para mulheres com recursos diversos. É um módulo que pode ser implantado em qualquer cidade do Brasil, no tamanho de duas vagas de estacionamento, situado em local de fácil acesso. A escolha pelo container é feita em razão de seu tamanho, adequado à duas vagas, seu baixo custo e a facilidade em adquirí-lo.",
+          "",
+          "<br><br>",
+          "",
+          "A estação propõe oferecer em suas instalações:",
+          "- Recursos de apoio à mães: fraldário, local confortável para amamentação e descanso;",
+          "- Banheiro acessível às pessoas com deficiência e às pessoas com crianças pequenas;",
+          "- Pequena cozinha;",
+          "- Espaço de estar, descanso e brincar;",
+          "- Bebedouro;",
+          "- Recursos de segurança (botão pânico);",
+          "- Câmeras de segurança;",
+          "- Wifi e tomadas para facilitar outros contatos;",
+          "- Gentileza urbana."
+        ],
         "images": [
           "/projects/estacao-m/interior.webp",
           "/projects/estacao-m/implantacao.webp"
@@ -16,7 +31,22 @@
         "id": 2,
         "title": "2 Estação M: módulo de apoio a mulheres no meio urbano",
         "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": [
+          "O projeto busca mitigar os problemas enfrentados no dia a dia pelo corpo feminino e democratizar o uso da cidade pelas mulheres. Tem a segurança e o acolhimento como conceitos principais. Propõe-se a construção de um espaço seguro para mulheres com recursos diversos. É um módulo que pode ser implantado em qualquer cidade do Brasil, no tamanho de duas vagas de estacionamento, situado em local de fácil acesso. A escolha pelo container é feita em razão de seu tamanho, adequado à duas vagas, seu baixo custo e a facilidade em adquirí-lo.",
+          "",
+          "<br><br>",
+          "",
+          "A estação propõe oferecer em suas instalações:",
+          "- Recursos de apoio à mães: fraldário, local confortável para amamentação e descanso;",
+          "- Banheiro acessível às pessoas com deficiência e às pessoas com crianças pequenas;",
+          "- Pequena cozinha;",
+          "- Espaço de estar, descanso e brincar;",
+          "- Bebedouro;",
+          "- Recursos de segurança (botão pânico);",
+          "- Câmeras de segurança;",
+          "- Wifi e tomadas para facilitar outros contatos;",
+          "- Gentileza urbana."
+        ],
         "images": [
           "/projects/estacao-m/interior.webp",
           "/projects/estacao-m/implantacao.webp"
@@ -26,7 +56,22 @@
         "id": 3,
         "title": "3 Estação M: módulo de apoio a mulheres no meio urbano",
         "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": [
+          "O projeto busca mitigar os problemas enfrentados no dia a dia pelo corpo feminino e democratizar o uso da cidade pelas mulheres. Tem a segurança e o acolhimento como conceitos principais. Propõe-se a construção de um espaço seguro para mulheres com recursos diversos. É um módulo que pode ser implantado em qualquer cidade do Brasil, no tamanho de duas vagas de estacionamento, situado em local de fácil acesso. A escolha pelo container é feita em razão de seu tamanho, adequado à duas vagas, seu baixo custo e a facilidade em adquirí-lo.",
+          "",
+          "<br><br>",
+          "",
+          "A estação propõe oferecer em suas instalações:",
+          "- Recursos de apoio à mães: fraldário, local confortável para amamentação e descanso;",
+          "- Banheiro acessível às pessoas com deficiência e às pessoas com crianças pequenas;",
+          "- Pequena cozinha;",
+          "- Espaço de estar, descanso e brincar;",
+          "- Bebedouro;",
+          "- Recursos de segurança (botão pânico);",
+          "- Câmeras de segurança;",
+          "- Wifi e tomadas para facilitar outros contatos;",
+          "- Gentileza urbana."
+        ],
         "images": [
           "/projects/estacao-m/interior.webp",
           "/projects/estacao-m/implantacao.webp"
@@ -36,7 +81,22 @@
         "id": 4,
         "title": "4 Estação M: módulo de apoio a mulheres no meio urbano",
         "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": [
+          "O projeto busca mitigar os problemas enfrentados no dia a dia pelo corpo feminino e democratizar o uso da cidade pelas mulheres. Tem a segurança e o acolhimento como conceitos principais. Propõe-se a construção de um espaço seguro para mulheres com recursos diversos. É um módulo que pode ser implantado em qualquer cidade do Brasil, no tamanho de duas vagas de estacionamento, situado em local de fácil acesso. A escolha pelo container é feita em razão de seu tamanho, adequado à duas vagas, seu baixo custo e a facilidade em adquirí-lo.",
+          "",
+          "<br><br>",
+          "",
+          "A estação propõe oferecer em suas instalações:",
+          "- Recursos de apoio à mães: fraldário, local confortável para amamentação e descanso;",
+          "- Banheiro acessível às pessoas com deficiência e às pessoas com crianças pequenas;",
+          "- Pequena cozinha;",
+          "- Espaço de estar, descanso e brincar;",
+          "- Bebedouro;",
+          "- Recursos de segurança (botão pânico);",
+          "- Câmeras de segurança;",
+          "- Wifi e tomadas para facilitar outros contatos;",
+          "- Gentileza urbana."
+        ],
         "images": [
           "/projects/estacao-m/interior.webp",
           "/projects/estacao-m/implantacao.webp"
