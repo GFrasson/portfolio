@@ -65,7 +65,7 @@ export default async function Projects({ params }: { params: Param }) {
                     src={project.images[0]}
                     width={1500}
                     height={1500}
-                    alt="Imagem principal"
+                    alt="Imagem secundária"
                   />
                 )}
                 {project.images.length > 1 && (
@@ -74,7 +74,8 @@ export default async function Projects({ params }: { params: Param }) {
                     src={project.images[1]}
                     width={1500}
                     height={1500}
-                    alt="Imagem secundária"
+                    priority={true}
+                    alt="Imagem principal"
                   />
                 )}
               </Flex>
