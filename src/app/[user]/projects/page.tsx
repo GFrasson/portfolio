@@ -43,8 +43,13 @@ export default async function Projects({ params }: { params: Param }) {
       {projects.map((project, index) => (
         <Section key={project.id} size="4" height="100%" position="relative">
           <div className={styles.pageContainer}>
-            <Flex direction="column" justify="between" height="100%">
-              <Flex direction="column" gap="8">
+            <Flex
+              direction="column"
+              justify="between"
+              height="100%"
+              className={styles.content}
+            >
+              <Flex direction="column" gap="8" className={styles.text}>
                 <Heading className={styles.projectHeading}>
                   {project.title}
                 </Heading>
@@ -53,7 +58,28 @@ export default async function Projects({ params }: { params: Param }) {
                 </Text>
               </Flex>
 
-              <Flex direction="column" gap="5">
+              <Flex align="center" justify="center" my="4">
+                {project.images.length > 0 && (
+                  <NextImage
+                    className={`${styles.projectImageSecondary} ${styles.projectImage}`}
+                    src={project.images[0]}
+                    width={1500}
+                    height={1500}
+                    alt="Imagem principal"
+                  />
+                )}
+                {project.images.length > 1 && (
+                  <NextImage
+                    className={`${styles.projectImagePrimary} ${styles.projectImage}`}
+                    src={project.images[1]}
+                    width={1500}
+                    height={1500}
+                    alt="Imagem secundária"
+                  />
+                )}
+              </Flex>
+
+              <Flex direction="column" gap="5" className={styles.buttons}>
                 <Link
                   href={`/${user}/projects/${project.id}`}
                   className={styles.seeMoreLink}
@@ -75,25 +101,6 @@ export default async function Projects({ params }: { params: Param }) {
                 </Flex>
               </Flex>
             </Flex>
-
-            {project.images.length > 0 && (
-              <NextImage
-                className={`${styles.projectImageSecondary} ${styles.projectImage}`}
-                src={project.images[0]}
-                width={1500}
-                height={1500}
-                alt="Imagem principal"
-              />
-            )}
-            {project.images.length > 1 && (
-              <NextImage
-                className={`${styles.projectImagePrimary} ${styles.projectImage}`}
-                src={project.images[1]}
-                width={1500}
-                height={1500}
-                alt="Imagem secundária"
-              />
-            )}
           </div>
         </Section>
       ))}
