@@ -2,7 +2,7 @@ import { Button, DropdownMenu, Flex, Text } from '@radix-ui/themes'
 import {
   HamburgerMenuIcon,
   Pencil1Icon,
-  ReaderIcon,
+  // ReaderIcon,
 } from '@radix-ui/react-icons'
 
 import styles from './styles.module.css'
@@ -17,14 +17,14 @@ export function NavigationBar() {
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content className={styles.dropdownMenuContent}>
-        <UserRouterLink route="/about" className={styles.dropdownMenuLink}>
+        {/* <UserRouterLink route="/about" className={styles.dropdownMenuLink}>
           <DropdownMenu.Item className={styles.dropdownMenuItem}>
             <Flex gap="2" align="center">
               <ReaderIcon />
               <Text>Sobre</Text>
             </Flex>
           </DropdownMenu.Item>
-        </UserRouterLink>
+        </UserRouterLink> */}
         <UserRouterLink route="/projects" className={styles.dropdownMenuLink}>
           <DropdownMenu.Item className={styles.dropdownMenuItem}>
             <Flex gap="2" align="center">
