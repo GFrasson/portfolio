@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.carouselBox {
+  height: 35rem;
+}
+
 .image {
   object-fit: contain;
   width: 100%;
@@ -20,4 +24,16 @@
 
 .description ul {
   margin-left: 1.2rem;
+}
+
+@media (max-width: 650px) {
+  .carouselBox {
+    height: 25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .carouselBox {
+    height: 20rem;
+  }
 }

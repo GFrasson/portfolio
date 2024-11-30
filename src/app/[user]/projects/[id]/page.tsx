@@ -1,4 +1,4 @@
-import { Heading, Section, Text } from '@radix-ui/themes'
+import { Box, Heading, Section, Text } from '@radix-ui/themes'
 
 import { NextImage } from '@/app/components/NextImage'
 import { Carousel } from '@/app/components/Carousel'
@@ -71,18 +71,20 @@ export default async function ProjectDetails({ params }: { params: Params }) {
       <div className={styles.pageContainer}>
         <Suspense fallback={<ProjectSkeletonLoading />}>
           <Heading>{project.title}</Heading>
-          <Carousel>
-            {project.images.map((image, index) => (
-              <NextImage
-                key={index}
-                className={styles.image}
-                src={image}
-                width={1500}
-                height={1500}
-                alt="Imagem"
-              />
-            ))}
-          </Carousel>
+          <Box className={styles.carouselBox} mb="6">
+            <Carousel>
+              {project.images.map((image, index) => (
+                <NextImage
+                  key={index}
+                  className={styles.image}
+                  src={image}
+                  width={1500}
+                  height={1500}
+                  alt="Imagem"
+                />
+              ))}
+            </Carousel>
+          </Box>
           <div
             className={styles.description}
             dangerouslySetInnerHTML={{
