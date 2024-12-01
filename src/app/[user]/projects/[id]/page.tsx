@@ -20,14 +20,19 @@ interface Project {
   images: string[]
 }
 
-export async function generateStaticParams() {
-  const brendaProjectIds: number[] = await fetch(
-    `http://localhost:3000/api/brenda/project-ids`,
-  ).then((res) => res.json())
+export const dynamicParams = false
 
-  const gabrielProjectIds: number[] = await fetch(
-    `http://localhost:3000/api/gabriel/project-ids`,
-  ).then((res) => res.json())
+export async function generateStaticParams() {
+  // const brendaProjectIds: number[] = await fetch(
+  //   `${process.env.APP_ROUTE}/api/brenda/project-ids`,
+  // ).then((res) => res.json())
+
+  // const gabrielProjectIds: number[] = await fetch(
+  //   `${process.env.APP_ROUTE}/api/gabriel/project-ids`,
+  // ).then((res) => res.json())
+
+  const brendaProjectIds = Array.from({ length: 5 }, (x, i) => i + 1)
+  const gabrielProjectIds = Array.from({ length: 0 }, (x, i) => i + 1)
 
   return [
     ...brendaProjectIds.map((projectId) => ({
@@ -41,15 +46,19 @@ export async function generateStaticParams() {
   ]
 }
 
-async function getProject(params: Params): Promise<Project> {
+async function getProject(params: Promise<Params>): Promise<Project> {
   const { id, user } = await params
-  const res = await fetch(`http://localhost:3000/api/${user}/projects/${id}`)
+  const res = await fetch(`${process.env.APP_ROUTE}/api/${user}/projects/${id}`)
   const project = await res.json()
 
   return project
 }
 
-export default async function ProjectDetails({ params }: { params: Params }) {
+export default async function ProjectDetails({
+  params,
+}: {
+  params: Promise<Params>
+}) {
   const project = await getProject(params)
 
   function sanitizeHTML(html: string) {
@@ -80,7 +89,7 @@ export default async function ProjectDetails({ params }: { params: Params }) {
                   src={image}
                   width={1500}
                   height={1500}
-                  alt="Imagem"
+                  alt={`Imagem ${index}`}
                 />
               ))}
             </Carousel>

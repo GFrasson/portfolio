@@ -26,15 +26,15 @@ export async function generateStaticParams() {
   return [{ user: 'brenda' }, { user: 'gabriel' }]
 }
 
-async function getProjects(params: Param): Promise<Project[]> {
+async function getProjects(params: Promise<Param>): Promise<Project[]> {
   const user = (await params).user
-  const res = await fetch(`http://localhost:3000/api/${user}/projects`)
+  const res = await fetch(`${process.env.APP_ROUTE}/api/${user}/projects`)
   const projects = await res.json()
 
   return projects
 }
 
-export default async function Projects({ params }: { params: Param }) {
+export default async function Projects({ params }: { params: Promise<Param> }) {
   const projects: Project[] = await getProjects(params)
   const { user } = await params
 
