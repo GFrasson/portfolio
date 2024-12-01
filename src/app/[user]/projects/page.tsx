@@ -7,12 +7,13 @@ import { BeforePageButton } from './components/ChangePageButton/BeforePageButton
 import { NextPageButton } from './components/ChangePageButton/NextPageButton'
 import Link from 'next/link'
 import { NextImage } from '../../components/NextImage'
+import { getProjects } from '@/utils/get-projects'
 
 export interface Project {
   id: number
   title: string
   summary: string
-  description: string
+  description: string[]
   images: string[]
 }
 
@@ -26,17 +27,9 @@ export async function generateStaticParams() {
   return [{ user: 'brenda' }, { user: 'gabriel' }]
 }
 
-async function getProjects(params: Promise<Param>): Promise<Project[]> {
-  const user = (await params).user
-  const res = await fetch(`${process.env.APP_ROUTE}/api/${user}/projects`)
-  const projects = await res.json()
-
-  return projects
-}
-
 export default async function Projects({ params }: { params: Promise<Param> }) {
-  const projects: Project[] = await getProjects(params)
   const { user } = await params
+  const projects: Project[] = getProjects(user)
 
   return (
     <PageScroll disableScrollBar={true} pagesAmount={projects.length}>

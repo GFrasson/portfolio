@@ -6,33 +6,19 @@ import styles from './styles.module.css'
 import { Suspense } from 'react'
 import { ProjectSkeletonLoading } from './components/ProjectSkeletonLoading'
 import purify from 'isomorphic-dompurify'
+import { getProject } from '@/utils/get-project'
+import { getProjectsIds } from '@/utils/get-project-ids'
 
 interface Params {
   user: string
   id: string
 }
 
-interface Project {
-  id: number
-  title: string
-  summary: string
-  description: string
-  images: string[]
-}
-
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  // const brendaProjectIds: number[] = await fetch(
-  //   `${process.env.APP_ROUTE}/api/brenda/project-ids`,
-  // ).then((res) => res.json())
-
-  // const gabrielProjectIds: number[] = await fetch(
-  //   `${process.env.APP_ROUTE}/api/gabriel/project-ids`,
-  // ).then((res) => res.json())
-
-  const brendaProjectIds = Array.from({ length: 5 }, (x, i) => i + 1)
-  const gabrielProjectIds = Array.from({ length: 0 }, (x, i) => i + 1)
+  const brendaProjectIds = getProjectsIds('brenda')
+  const gabrielProjectIds = getProjectsIds('gabriel')
 
   return [
     ...brendaProjectIds.map((projectId) => ({
@@ -46,20 +32,13 @@ export async function generateStaticParams() {
   ]
 }
 
-async function getProject(params: Promise<Params>): Promise<Project> {
-  const { id, user } = await params
-  const res = await fetch(`${process.env.APP_ROUTE}/api/${user}/projects/${id}`)
-  const project = await res.json()
-
-  return project
-}
-
 export default async function ProjectDetails({
   params,
 }: {
   params: Promise<Params>
 }) {
-  const project = await getProject(params)
+  const { id, user } = await params
+  const project = await getProject(id, user)
 
   function sanitizeHTML(html: string) {
     return purify.sanitize(html, { USE_PROFILES: { html: true } })

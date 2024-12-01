@@ -22,8 +22,9 @@ function getFullDatabase(): Database {
   return readJsonFile(path.resolve('./src/database/data.json')) as Database
 }
 
+const database = getFullDatabase()
+
 export function getUserDatabase(user: string): User | null {
-  const database = getFullDatabase()
   if (!Object.prototype.hasOwnProperty.call(database, user)) {
     return null
   }
