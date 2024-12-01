@@ -71,6 +71,8 @@ export default function SmoothScroll({
 
     if (!Number.isNaN(progress)) {
       scrollYProgress.set(progress)
+      const scrollY = progress * (contentHeight - windowSize.height)
+      window.scrollTo({ top: scrollY, behavior: 'instant' })
     }
   }, [currentPage, contentHeight, windowSize.height, scrollYProgress])
 
