@@ -38,7 +38,7 @@ export function Carousel({ children }: CarouselProps) {
     >
       {Children.map(children, (child, index) => (
         <SwiperSlide key={index}>
-          <div className='swiper-zoom-container'>
+          <div className="swiper-zoom-container">
             {child}
           </div>
         </SwiperSlide>
