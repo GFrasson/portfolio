@@ -17,7 +17,7 @@ export function UserRouterLink({
   const { user } = useParams<{ user: string }>()
 
   return (
-    <Link {...props} href={`/${user}/${route}`}>
+    <Link {...props} href={`/${user ?? "brenda"}/${route}`}>
       {children}
     </Link>
   )
