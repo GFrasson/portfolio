@@ -4,12 +4,13 @@ import { Children, ReactNode } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
+import 'swiper/css/zoom'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import styles from './styles.module.css'
 
-import { EffectFade, Keyboard, Navigation, Pagination } from 'swiper/modules'
+import { EffectFade, Keyboard, Navigation, Pagination, Zoom } from 'swiper/modules'
 
 interface CarouselProps {
   children: ReactNode
@@ -23,7 +24,7 @@ export function Carousel({ children }: CarouselProps) {
       fadeEffect={{
         crossFade: true,
       }}
-      modules={[EffectFade, Navigation, Pagination, Keyboard]}
+      modules={[EffectFade, Navigation, Pagination, Keyboard, Zoom]}
       className={styles.swiper}
       keyboard={{
         enabled: true,
@@ -33,9 +34,14 @@ export function Carousel({ children }: CarouselProps) {
       pagination={{
         dynamicBullets: true,
       }}
+      zoom={true}
     >
       {Children.map(children, (child, index) => (
-        <SwiperSlide key={index}>{child}</SwiperSlide>
+        <SwiperSlide key={index}>
+          <div className='swiper-zoom-container'>
+            {child}
+          </div>
+        </SwiperSlide>
       ))}
     </Swiper>
   )
