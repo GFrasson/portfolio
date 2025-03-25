@@ -75,8 +75,14 @@
           "- Mobiliário planejado;"
         ],
         "images": [
-          "/projects/estacao-m/interior.webp",
-          "/projects/estacao-m/implantacao.webp"
+          "/projects/constance/01.png",
+          "/projects/constance/02.png",
+          "/projects/constance/03.png",
+          "/projects/constance/04.png",
+          "/projects/constance/05.png",
+          "/projects/constance/06.png",
+          "/projects/constance/07.png",
+          "/projects/constance/08.png"
         ]
       },
       {
@@ -105,8 +111,10 @@
           "- Mobiliário planejado;"
         ],
         "images": [
-          "/projects/estacao-m/interior.webp",
-          "/projects/estacao-m/implantacao.webp"
+          "/projects/escritorio-engenharia/01.png",
+          "/projects/escritorio-engenharia/02.png",
+          "/projects/escritorio-engenharia/03.png",
+          "/projects/escritorio-engenharia/04.png"
         ]
       },
       {
@@ -125,8 +133,16 @@
           "Este levantamento foi uma prestação de serviço à empresa Constante Regularização de Imóveis, na pessoa de Ana Karolina Ferreira de Castro, na qual o serviço prestado foi o  levantamento (em conjunto com a empresa) e posteriormente o produto, desenho técnico do imóvel, para fins de regularização de imóvel."
         ],
         "images": [
-          "/projects/estacao-m/interior.webp",
-          "/projects/estacao-m/implantacao.webp"
+          "/projects/levantamento/01.png",
+          "/projects/levantamento/02.png",
+          "/projects/levantamento/03.png",
+          "/projects/levantamento/04.png",
+          "/projects/levantamento/05.png",
+          "/projects/levantamento/06.png",
+          "/projects/levantamento/07.png",
+          "/projects/levantamento/08.png",
+          "/projects/levantamento/09.png",
+          "/projects/levantamento/10.png"
         ]
       },
       {
@@ -145,8 +161,10 @@
           "Este desenho foi uma prestação de serviço à empresa Constante Regularização de Imóveis, na pessoa de Ana Karolina Ferreira de Castro, na qual o serviço prestado foi o desenho técnico do imóvel, para fins de regularização, realizado a partir de documentos DWG do levantamento completo e fotos previamente disponibilizados. Foi feita também uma visita no local para conferências de alterações pós-reformas e registro fotográfico das mudanças (amostra a seguir)."
         ],
         "images": [
-          "/projects/estacao-m/interior.webp",
-          "/projects/estacao-m/implantacao.webp"
+          "/projects/desenho-tecnico/01.png",
+          "/projects/desenho-tecnico/02.png",
+          "/projects/desenho-tecnico/03.png",
+          "/projects/desenho-tecnico/04.png"
         ]
       }
     ]
