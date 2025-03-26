@@ -5,6 +5,7 @@ import { PagesContext } from '@/app/contexts/PageContext'
 import { Button, Flex, Text } from '@radix-ui/themes'
 import { ArrowDownIcon } from '@radix-ui/react-icons'
 import styles from '../styles.module.css'
+import { useMobile } from '@/app/hooks/useMobile'
 
 interface NextPageButtonProps {
   pagesAmount: number
@@ -12,6 +13,11 @@ interface NextPageButtonProps {
 
 export function NextPageButton({ pagesAmount }: NextPageButtonProps) {
   const { goToNextPage } = useContext(PagesContext)
+  const isMobile = useMobile();
+
+  if (isMobile) {
+    return null
+  }
 
   return (
     <Button

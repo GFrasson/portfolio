@@ -5,9 +5,15 @@ import { useContext } from 'react'
 import { Button, Flex, Text } from '@radix-ui/themes'
 import { ArrowUpIcon } from '@radix-ui/react-icons'
 import styles from '../styles.module.css'
+import { useMobile } from '@/app/hooks/useMobile'
 
 export function BeforePageButton() {
   const { goToBeforePage } = useContext(PagesContext)
+  const isMobile = useMobile();
+
+  if (isMobile) {
+    return null
+  }
 
   return (
     <Button

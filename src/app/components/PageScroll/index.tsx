@@ -11,6 +11,7 @@ import {
 import SmoothScroll from '../SmoothScroll'
 import { PagesContext } from '@/app/contexts/PageContext'
 import styles from './styles.module.css'
+import { useMobile } from '@/app/hooks/useMobile'
 
 interface PageScrollProps {
   children: ReactNode
@@ -25,7 +26,7 @@ export function PageScroll({
 }: PageScrollProps) {
   const { goToNextPage, goToBeforePage } = useContext(PagesContext)
   const [isScrolling, setIsScrolling] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const isMobile = useMobile()
   const hasScrollBar = isMobile || !disableScrollBar
 
   function handleOnWheel(event: WheelEvent) {
@@ -43,21 +44,7 @@ export function PageScroll({
 
     setTimeout(() => setIsScrolling(false), 600)
   }
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 450)
-    }
-
-    handleResize()
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
+  
   useEffect(() => {
     if (hasScrollBar) {
       return
@@ -82,7 +69,7 @@ export function PageScroll({
         {Children.map(children, (child, index) => (
           <section
             key={index}
-            className={styles.pageScrollSection}
+            className={styles.pageSection}
           >
             {child}
           </section>
