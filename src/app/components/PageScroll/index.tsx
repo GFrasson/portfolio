@@ -78,7 +78,7 @@ export function PageScroll({
   }, [hasScrollBar])
 
   return (
-    <SmoothScroll>
+    <SmoothScroll pageBehavior={pageBehavior}>
       {Children.map(children, (child, index) => (
         <section
           key={index}
