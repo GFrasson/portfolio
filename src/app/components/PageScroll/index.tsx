@@ -30,15 +30,15 @@ export function PageScroll({
   const hasScrollBar = isMobile || !disableScrollBar
 
   function handleOnWheel(event: WheelEvent) {
+    if (!pageBehavior) {
+      return
+    }
+
     if (isScrolling) {
       return
     }
 
     setIsScrolling(true)
-
-    if (!pageBehavior) {
-      return
-    }
 
     if (event.deltaY > 0) {
       goToNextPage(pagesAmount)
