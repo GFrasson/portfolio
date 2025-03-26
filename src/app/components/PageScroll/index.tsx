@@ -30,11 +30,7 @@ export function PageScroll({
   const hasScrollBar = isMobile || !disableScrollBar
 
   function handleOnWheel(event: WheelEvent) {
-    if (!pageBehavior) {
-      return
-    }
-
-    if (isScrolling) {
+    if (!pageBehavior || isScrolling) {
       return
     }
 
