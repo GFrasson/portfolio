@@ -25,6 +25,9 @@ export function PageScroll({
 }: PageScrollProps) {
   const { goToNextPage, goToBeforePage } = useContext(PagesContext)
   const [isScrolling, setIsScrolling] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const pageBehavior = !isMobile;
+  const hasScrollBar = isMobile || !disableScrollBar
 
   function handleOnWheel(event: WheelEvent) {
     if (isScrolling) {
@@ -32,6 +35,10 @@ export function PageScroll({
     }
 
     setIsScrolling(true)
+
+    if (!pageBehavior) {
+      return
+    }
 
     if (event.deltaY > 0) {
       goToNextPage(pagesAmount)
@@ -43,7 +50,21 @@ export function PageScroll({
   }
 
   useEffect(() => {
-    if (!disableScrollBar) {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 450) 
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (hasScrollBar) {
       return
     }
 
@@ -58,7 +79,7 @@ export function PageScroll({
     return () => {
       body.style.overflow = bodyOverflowInitialValue
     }
-  }, [disableScrollBar])
+  }, [hasScrollBar])
 
   return (
     <SmoothScroll>
