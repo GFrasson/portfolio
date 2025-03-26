@@ -26,11 +26,10 @@ export function PageScroll({
   const { goToNextPage, goToBeforePage } = useContext(PagesContext)
   const [isScrolling, setIsScrolling] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
-  const pageBehavior = !isMobile;
   const hasScrollBar = isMobile || !disableScrollBar
 
   function handleOnWheel(event: WheelEvent) {
-    if (!pageBehavior || isScrolling) {
+    if (isScrolling) {
       return
     }
 
@@ -47,7 +46,7 @@ export function PageScroll({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 450) 
+      setIsMobile(window.innerWidth <= 450)
     }
 
     handleResize()
@@ -77,8 +76,23 @@ export function PageScroll({
     }
   }, [hasScrollBar])
 
+  if (isMobile) {
+    return (
+      <>
+        {Children.map(children, (child, index) => (
+          <section
+            key={index}
+            className={styles.pageScrollSection}
+          >
+            {child}
+          </section>
+        ))}
+      </>
+    )
+  }
+
   return (
-    <SmoothScroll pageBehavior={pageBehavior}>
+    <SmoothScroll>
       {Children.map(children, (child, index) => (
         <section
           key={index}

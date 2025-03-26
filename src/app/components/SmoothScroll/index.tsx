@@ -11,13 +11,11 @@ interface WindowSize {
 }
 
 interface SmoothScrollProps {
-  pageBehavior: boolean
   children: React.ReactNode
 }
 
 export default function SmoothScroll({
   children,
-  pageBehavior
 }: SmoothScrollProps) {
   const { currentPage } = useContext(PagesContext)
 
@@ -71,10 +69,7 @@ export default function SmoothScroll({
   }, [contentRef])
 
   useEffect(() => {
-    const progressAux = (contentHeight / windowSize.height - 1)
-    const progress = pageBehavior
-      ? currentPage / progressAux
-      : progressAux
+    const progress = currentPage / (contentHeight / windowSize.height - 1)
 
     if (!Number.isNaN(progress)) {
       scrollYProgress.set(progress)
