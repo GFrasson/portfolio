@@ -17,6 +17,9 @@ const solway = Solway({
 export const metadata: Metadata = {
   title: 'Portfólio',
   description: 'Portfólio',
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
