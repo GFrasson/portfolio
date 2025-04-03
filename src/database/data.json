@@ -116,58 +116,6 @@
           "/projects/escritorio-engenharia/03.png",
           "/projects/escritorio-engenharia/04.png"
         ]
-      },
-      {
-        "id": 4,
-        "title": "Levantamento e desenho: Casa a ser regularizada (projeto completo)",
-        "summary": "Este levantamento foi uma prestação de serviço à empresa Constante Regularização de Imóveis, na pessoa de Ana Karolina Ferreira de Castro, na qual o serviço prestado foi o levantamento (em conjunto com a empresa) e posteriormente o produto, desenho técnico do imóvel, para fins de regularização de imóvel.",
-        "description": [
-          "**Autoria:** Brenda C. S. B. da Silva.",
-          "",
-          "**Tipo de projeto:** Regularização de imóvel.",
-          "",
-          "**Local e data:** Juiz de Fora, MG. Outubro de 2024.",
-          "",
-          "<br>",
-          "",
-          "Este levantamento foi uma prestação de serviço à empresa Constante Regularização de Imóveis, na pessoa de Ana Karolina Ferreira de Castro, na qual o serviço prestado foi o  levantamento (em conjunto com a empresa) e posteriormente o produto, desenho técnico do imóvel, para fins de regularização de imóvel."
-        ],
-        "images": [
-          "/projects/levantamento/01.png",
-          "/projects/levantamento/02.png",
-          "/projects/levantamento/03.png",
-          "/projects/levantamento/04.png",
-          "/projects/levantamento/05.png",
-          "/projects/levantamento/06.png",
-          "/projects/levantamento/07.png",
-          "/projects/levantamento/08.png",
-          "/projects/levantamento/09.png",
-          "/projects/levantamento/10.png",
-          "/projects/levantamento/11.png"
-        ]
-      },
-      {
-        "id": 5,
-        "title": "Desenho técnico: Casa a ser regularizada (projeto simplificado)",
-        "summary": "Este desenho foi uma prestação de serviço à empresa Constante Regularização de Imóveis, na pessoa de Ana Karolina Ferreira de Castro, na qual o serviço prestado foi o desenho técnico do imóvel, para fins de regularização.",
-        "description": [
-          "**Autoria:** Brenda C. S. B. da Silva.",
-          "",
-          "**Tipo de projeto:** Regularização de imóvel.",
-          "",
-          "**Local e data:** Juiz de Fora, MG. Outubro de 2024.",
-          "",
-          "<br>",
-          "",
-          "Este desenho foi uma prestação de serviço à empresa Constante Regularização de Imóveis, na pessoa de Ana Karolina Ferreira de Castro, na qual o serviço prestado foi o desenho técnico do imóvel, para fins de regularização, realizado a partir de documentos DWG do levantamento completo e fotos previamente disponibilizados. Foi feita também uma visita no local para conferências de alterações pós-reformas e registro fotográfico das mudanças (amostra a seguir)."
-        ],
-        "images": [
-          "/projects/desenho-tecnico/01.png",
-          "/projects/desenho-tecnico/02.png",
-          "/projects/desenho-tecnico/03.png",
-          "/projects/desenho-tecnico/04.png",
-          "/projects/desenho-tecnico/05.png"
-        ]
       }
     ]
   },
