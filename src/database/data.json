@@ -1,0 +1,126 @@
+{
+  "brenda": {
+    "about": "",
+    "projects": [
+      {
+        "id": 1,
+        "title": "Estação M: módulo de apoio a mulheres no meio urbano",
+        "summary": "O projeto busca mitigar os problemas enfrentados no dia a dia pelo corpo feminino e democratizar o uso da cidade pelas mulheres. Tem a segurança e o acolhimento como conceitos principais. Propõe-se a construção de um espaço seguro para mulheres com recursos diversos.",
+        "description": [
+          "**Autoria:** Brenda C. S. B. da Silva.",
+          "",
+          "**Tipo de projeto:** Construção em container.",
+          "",
+          "**Local e data:** Juiz de Fora, MG. Outubro de 2024.",
+          "",
+          "<br>",
+          "",
+          "O projeto busca mitigar os problemas enfrentados no dia a dia pelo corpo feminino e democratizar o uso da cidade pelas mulheres. Tem a segurança e o acolhimento como conceitos principais. Propõe-se a construção de um espaço seguro para mulheres com recursos diversos. É um módulo que pode ser implantado em qualquer cidade do Brasil, no tamanho de duas vagas de estacionamento, situado em local de fácil acesso. A escolha pelo container é feita em razão de seu tamanho, adequado à duas vagas, seu baixo custo e a facilidade em adquirí-lo.",
+          "",
+          "<br><br>",
+          "",
+          "A estação propõe oferecer em suas instalações:",
+          "- Recursos de apoio à mães: fraldário, local confortável para amamentação e descanso;",
+          "- Banheiro acessível às pessoas com deficiência e às pessoas com crianças pequenas;",
+          "- Pequena cozinha;",
+          "- Espaço de estar, descanso e brincar;",
+          "- Bebedouro;",
+          "- Recursos de segurança (botão pânico);",
+          "- Câmeras de segurança;",
+          "- Wifi e tomadas para facilitar outros contatos;",
+          "- Gentileza urbana."
+        ],
+        "images": [
+          "/projects/estacao-m/interior.webp",
+          "/projects/estacao-m/implantacao.webp",
+          "/projects/estacao-m/sketch-01.png",
+          "/projects/estacao-m/sketch-02.png",
+          "/projects/estacao-m/sketch-03.png",
+          "/projects/estacao-m/02.png",
+          "/projects/estacao-m/03.png",
+          "/projects/estacao-m/04.png",
+          "/projects/estacao-m/05.png",
+          "/projects/estacao-m/06.png",
+          "/projects/estacao-m/07.png",
+          "/projects/estacao-m/08.png",
+          "/projects/estacao-m/09.png",
+          "/projects/estacao-m/10.png",
+          "/projects/estacao-m/11.png",
+          "/projects/estacao-m/12.png",
+          "/projects/estacao-m/13.png"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Interiores: Sala de recepção de um escritório de engenharia",
+        "summary": "Esta proposta foi pensada para um escritório de engenharia localizado no centro da cidade de Juiz de Fora. A cliente queria um espaço aconchegante e moderno para receber as pessoas em seu escritório.",
+        "description": [
+          "**Autoria:** Brenda C. S. B. da Silva.",
+          "",
+          "**Tipo de projeto:** Proposta de layout e decoração.",
+          "",
+          "**Local e data:** Juiz de Fora, MG. Novembro de 2024.",
+          "",
+          "<br>",
+          "",
+          "Esta proposta foi pensada para um escritório de engenharia localizado no centro da cidade de Juiz de Fora. A cliente queria um espaço aconchegante e moderno para receber as pessoas em seu escritório. A parede ripada é um elemento fixo preexistente no local, e as cores da marca são azul escuro, laranja e verde. Houve o pedido da presença de plantas na decoração e que fosse uma decoração mais leve, sem muitos elementos.",
+          "",
+          "<br><br>",
+          "",
+          "Demandas da sala:",
+          "- Uma estação de trabalho;",
+          "- Assentos de espera;",
+          "- Pequeno buffet;",
+          "- Decoração moderna;",
+          "- Mobiliário planejado;"
+        ],
+        "images": [
+          "/projects/constance/01.png",
+          "/projects/constance/02.png",
+          "/projects/constance/03.png",
+          "/projects/constance/04.png",
+          "/projects/constance/05.png",
+          "/projects/constance/06.png",
+          "/projects/constance/07.png",
+          "/projects/constance/08.png"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Interiores: Sala comercial de um escritório de engenharia",
+        "summary": "Esta proposta foi pensada para um escritório de engenharia localizado em uma galeria no centro da cidade de Juiz de Fora. Os clientes precisavam de um espaço de trabalho e atendimento de pessoas.",
+        "description": [
+          "**Autoria:** Cinthia Souza da Gama e Brenda C. S. B. da Silva.",
+          "",
+          "**Tipo de projeto:** Proposta de layout e decoração.",
+          "",
+          "**Local e data:** Juiz de Fora, MG. Outubro de 2024.",
+          "",
+          "<br>",
+          "",
+          "Esta proposta foi pensada para um escritório de engenharia localizado em uma galeria no centro da cidade de Juiz de Fora. Os clientes precisavam de um espaço de trabalho e atendimento de pessoas. Descreveram e trouxeram referências de estilo industrial, com metalon, madeira e cimento queimado e trouxeram a preferência pela cor laranja e tijolinhos.",
+          "",
+          "<br><br>",
+          "",
+          "Demandas da sala:",
+          "- Duas estações de trabalho;",
+          "- Assentos de espera;",
+          "- Sala de reuniões;",
+          "- Cantinho do café;",
+          "- Decoração moderna;",
+          "- Mobiliário planejado;"
+        ],
+        "images": [
+          "/projects/escritorio-engenharia/01.png",
+          "/projects/escritorio-engenharia/02.png",
+          "/projects/escritorio-engenharia/03.png",
+          "/projects/escritorio-engenharia/04.png"
+        ]
+      }
+    ]
+  },
+  "gabriel": {
+    "about": "",
+    "projects": []
+  }
+}

@@ -1,0 +1,13 @@
+.pageScrollSection {
+  height: 100vh;
+  width: 100vw
+}
+
+.pageSection {
+  width: 100vw
+}
+
+.pageSection > section {
+  padding-top: 4rem;
+  padding-bottom: 0.5rem;
+}

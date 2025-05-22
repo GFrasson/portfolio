@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* background: linear-gradient(180deg, var(--accent5), var(--white)); */
+  font-family: 'Solway';
+  -webkit-font-smoothing: antialiased;
+}
+
+.radix-themes {
+  --default-font-family: var(--font-solway);
+  --default-font-weight: 400;
+}

@@ -1,18 +1,47 @@
-import React from 'react'
-import './styles.css'
+import { Theme } from '@radix-ui/themes'
+import type { Metadata } from 'next'
+import { Solway } from 'next/font/google'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+import '@radix-ui/themes/styles.css'
+import { NavigationBar } from './components/NavigationBar'
+import { PagesProvider } from './contexts/PageContext'
+import '@/styles/global.css'
+
+const solway = Solway({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '700'],
+  variable: '--font-solway',
+})
+
+export const metadata: Metadata = {
+  title: 'Portfólio',
+  description: 'Portfólio',
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
-
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="en">
-      <body>
-        <main>{children}</main>
+      <head></head>
+      <body className={`${solway.variable}`}>
+        <Theme
+          appearance="light"
+          accentColor="ruby"
+          grayColor="mauve"
+          panelBackground="translucent"
+          scaling="100%"
+          radius="medium"
+        >
+          <NavigationBar />
+          <PagesProvider>{children}</PagesProvider>
+        </Theme>
       </body>
     </html>
   )

@@ -1,0 +1,172 @@
+.pageContainer {
+  height: 100%;
+  max-width: 88%;
+  margin: 0 auto;
+}
+
+.projectHeading {
+  max-width: 20rem;
+}
+
+.descriptionText {
+  max-width: 20rem;
+  text-align: justify;
+}
+
+.seeMoreLink {
+  text-decoration: none;
+  color: var(--mauve1);
+  width: 7rem;
+}
+
+.showProjectButton {
+  width: 7rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.projectImage {
+  position: absolute;
+  object-fit: cover;
+}
+
+.projectImagePrimary {
+  width: 50%;
+  height: 75%;
+  right: 0;
+  bottom: 0;
+  border-top-right-radius: var(--radius-4);
+  border-bottom-left-radius: var(--radius-4);
+}
+
+.projectImageSecondary {
+  width: 30%;
+  height: 45%;
+  top: 0;
+  right: 35%;
+  z-index: 1;
+  border-bottom-left-radius: var(--radius-4);
+  border-bottom-right-radius: var(--radius-4);
+  transition: ease-in-out 1s;
+}
+
+.projectImageSecondary:hover {
+  transform-origin: top left;
+  transform: scale(1.5);
+  transition: ease-in-out 1s;
+}
+
+@media (max-width: 1200px) {
+  .projectImageSecondary {
+    right: 30%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .projectImagePrimary {
+    width: 40%;
+  }
+
+  .projectImageSecondary {
+    right: 25%;
+  }
+}
+
+@media (max-width: 850px) {
+  .projectImagePrimary {
+    width: 50%;
+    height: 50%;
+    border-top-right-radius: 0;
+  }
+
+  .projectImageSecondary {
+    width: 50%;
+    height: 50%;
+    right: 0;
+    border-top-left-radius: var(--radius-4);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .projectImageSecondary:hover {
+    transform: none; 
+  }
+}
+
+@media (max-width: 750px) {
+  .content {
+    max-width: 45%;
+  }
+
+  .projectImagePrimary,
+  .projectImageSecondary {
+    width: 45%;
+  }
+}
+
+@media (max-width: 550px) {
+  .content {
+    font-size: 80%;
+  }
+
+  .projectHeading {
+    font-size: 150%;
+    line-height: 130%;
+  }
+
+  .projectImagePrimary {
+    width: 45%;
+  }
+
+  .projectImageSecondary {
+    width: 45%;
+  }
+}
+
+@media (max-width: 450px) {
+  .content {
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .text {
+    gap: 1rem;
+  }
+
+  .projectHeading {
+    font-size: 150%;
+    line-height: 130%;
+    max-width: 100%;
+  }
+
+  .descriptionText {
+    max-width: 100%;
+  }
+
+  .projectImage {
+    position: initial;
+  }
+
+  .projectImagePrimary {
+    border-radius: 0;
+    border-top-right-radius: var(--radius-4);
+    border-bottom-right-radius: var(--radius-4);
+  }
+
+  .projectImageSecondary {
+    border-radius: 0;
+    border-top-left-radius: var(--radius-4);
+    border-bottom-left-radius: var(--radius-4);
+  }
+
+  .projectImagePrimary,
+  .projectImageSecondary {
+    width: 50%;
+    height: 10rem;
+  }
+
+  .buttons {
+    gap: 1rem;
+  }
+}
