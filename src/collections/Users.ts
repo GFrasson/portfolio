@@ -16,6 +16,13 @@ export const Users: CollectionConfig = {
       required: true,
     },
     {
+      name: 'roles',
+      type: 'select',
+      hasMany: true,
+      options: ['admin'],
+      defaultValue: [],
+    },
+    {
       name: 'slug',
       type: 'text',
       required: true,
