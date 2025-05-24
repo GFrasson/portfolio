@@ -6,8 +6,9 @@ import styles from './styles.module.css'
 import { BeforePageButton } from './components/ChangePageButton/BeforePageButton'
 import { NextPageButton } from './components/ChangePageButton/NextPageButton'
 import Link from 'next/link'
-import { NextImage } from '../../components/NextImage'
-import { getProjects } from '@/utils/get-projects'
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+import { Media } from '../../components/Media'
 
 export interface Project {
   id: number
@@ -29,11 +30,43 @@ export async function generateStaticParams() {
 
 export default async function Projects({ params }: { params: Promise<Param> }) {
   const { user } = await params
-  const projects: Project[] = getProjects(user)
+
+  const payload = await getPayload({ config: configPromise })
+
+  const userResult = await payload.find({
+    collection: 'users',
+    where: {
+      slug: {
+        equals: user,
+      },
+    },
+  })
+
+  const userDoc = userResult?.docs?.[0]
+  if (!userDoc) {
+    throw new Error('Usuário não encontrado')
+  }
+
+  const projects = await payload.find({
+    collection: 'projects',
+    depth: 1,
+    pagination: false,
+    select: {
+      title: true,
+      summary: true,
+      description: true,
+      images: true
+    },
+    where: {
+      author: {
+        equals: userDoc.id
+      }
+    }
+  })
 
   return (
-    <PageScroll disableScrollBar={true} pagesAmount={projects.length}>
-      {projects.map((project, index) => (
+    <PageScroll disableScrollBar={true} pagesAmount={projects.totalDocs}>
+      {projects.docs.map((project, index) => (
         <Section key={project.id} size="4" height="100%" position="relative">
           <div className={styles.pageContainer}>
             <Flex
@@ -52,23 +85,23 @@ export default async function Projects({ params }: { params: Promise<Param> }) {
               </Flex>
 
               <Flex align="center" justify="center" my="4">
-                {project.images.length > 0 && (
-                  <NextImage
+                {project.images && project.images.length > 0 && (
+                  <Media
                     className={`${styles.projectImageSecondary} ${styles.projectImage}`}
-                    src={project.images[0]}
+                    fill
                     width={1500}
                     height={1500}
-                    alt="Imagem secundária"
+                    resource={project.images[0].image}
                   />
                 )}
-                {project.images.length > 1 && (
-                  <NextImage
+                {project.images && project.images.length > 1 && (
+                  <Media
                     className={`${styles.projectImagePrimary} ${styles.projectImage}`}
-                    src={project.images[1]}
+                    fill
                     width={1500}
                     height={1500}
-                    priority={true}
-                    alt="Imagem principal"
+                    resource={project.images[1].image}
+                    priority
                   />
                 )}
               </Flex>
@@ -89,8 +122,8 @@ export default async function Projects({ params }: { params: Promise<Param> }) {
                 <Flex align="center" justify="start" gap="2">
                   {index > 0 && <BeforePageButton />}
 
-                  {index < projects.length - 1 && (
-                    <NextPageButton pagesAmount={projects.length} />
+                  {index < projects.totalDocs - 1 && (
+                    <NextPageButton pagesAmount={projects.totalDocs} />
                   )}
                 </Flex>
               </Flex>
