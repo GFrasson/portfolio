@@ -8,6 +8,11 @@ import { ProjectSkeletonLoading } from './components/ProjectSkeletonLoading'
 import purify from 'isomorphic-dompurify'
 import { getProject } from '@/utils/get-project'
 import { getProjectsIds } from '@/utils/get-project-ids'
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+import { Media } from '@/app/(frontend)/components/Media'
+import { RichText } from '@payloadcms/richtext-lexical/react'
+
 
 interface Params {
   user: string
@@ -17,19 +22,32 @@ interface Params {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const brendaProjectIds = getProjectsIds('brenda')
-  const gabrielProjectIds = getProjectsIds('gabriel')
+  const payload = await getPayload({ config: configPromise });
+  
+  const userResult = await payload.find({
+    collection: 'users',
+    select: {
+      slug: true
+    }
+  });
 
-  return [
-    ...brendaProjectIds.map((projectId) => ({
-      user: 'brenda',
-      id: String(projectId),
-    })),
-    ...gabrielProjectIds.map((projectId) => ({
-      user: 'gabriel',
-      id: String(projectId),
-    })),
-  ]
+  const projectsResult = await payload.find({
+    collection: 'projects',
+    depth: 1,
+    pagination: false,
+  });
+
+  return projectsResult.docs?.map(project => {
+    const userSlug = userResult.docs?.find(user => user.id === project.author);
+    if (!userSlug) {
+      return {}
+    }
+
+    return {
+      user: userSlug,
+      id: String(project.id)
+    }
+  });
 }
 
 export default async function ProjectDetails({
@@ -38,7 +56,30 @@ export default async function ProjectDetails({
   params: Promise<Params>
 }) {
   const { id, user } = await params
-  const project = await getProject(id, user)
+  const payload = await getPayload({ config: configPromise })
+
+  const projectDoc = await payload.find({
+    collection: 'projects',
+    depth: 1,
+    pagination: false,
+    select: {
+      title: true,
+      description: true,
+      images: true
+    },
+    where: {
+      id: {
+        equals: Number(id)
+      }
+    },
+    limit: 1
+  });
+
+  if (projectDoc.docs.length === 0) {
+    throw new Error("Projeto não encontrado");
+  }
+
+  const project = projectDoc.docs[0];
 
   function sanitizeHTML(html: string) {
     return purify.sanitize(html, { USE_PROFILES: { html: true } })
@@ -58,27 +99,23 @@ export default async function ProjectDetails({
     <Section size="4">
       <div className={styles.pageContainer}>
         <Suspense fallback={<ProjectSkeletonLoading />}>
-          <Heading>{project.title}</Heading>
+          <Heading mb="2">{project.title}</Heading>
+
+          <RichText className={styles.description} data={project.description} />
+
           <Box className={styles.carouselBox} mb="6">
             <Carousel>
-              {project.images.map((image, index) => (
-                <NextImage
+              {project.images?.map((image, index) => (
+                <Media
                   key={index}
                   className={styles.image}
-                  src={image}
+                  resource={image.image}
                   width={1500}
                   height={1500}
-                  alt={`Imagem ${index}`}
                 />
               ))}
             </Carousel>
           </Box>
-          <div
-            className={styles.description}
-            dangerouslySetInnerHTML={{
-              __html: sanitizeHTML(project.description),
-            }}
-          />
         </Suspense>
       </div>
     </Section>

@@ -54,7 +54,6 @@ export default async function Projects({ params }: { params: Promise<Param> }) {
     select: {
       title: true,
       summary: true,
-      description: true,
       images: true
     },
     where: {
