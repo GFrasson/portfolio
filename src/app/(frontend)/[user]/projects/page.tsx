@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { Media } from '../../components/Media'
+import { ImageMedia } from '../../components/Media/ImageMedia'
 
 export interface Project {
   id: number
@@ -85,18 +86,16 @@ export default async function Projects({ params }: { params: Promise<Param> }) {
 
               <Flex align="center" justify="center" my="4">
                 {project.images && project.images.length > 0 && (
-                  <Media
-                    className={`${styles.projectImageSecondary} ${styles.projectImage}`}
-                    fill
+                  <ImageMedia
+                    imgClassName={`${styles.projectImageSecondary} ${styles.projectImage}`}
                     width={1500}
                     height={1500}
                     resource={project.images[0].image}
                   />
                 )}
                 {project.images && project.images.length > 1 && (
-                  <Media
-                    className={`${styles.projectImagePrimary} ${styles.projectImage}`}
-                    fill
+                  <ImageMedia
+                    imgClassName={`${styles.projectImage} ${styles.projectImagePrimary}`}
                     width={1500}
                     height={1500}
                     resource={project.images[1].image}

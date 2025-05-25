@@ -58,12 +58,13 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         .join(', ')
 
   return (
-    <picture className={pictureClassName}>
+    // <picture className={pictureClassName}>
       <NextImage
         alt={alt || ''}
         className={imgClassName}
         fill={fill}
-        height={!fill ? height : undefined}
+        height={!fill ? imageHeight : undefined}
+        width={!fill ? imageWidth : undefined}
         // placeholder="blur"
         // blurDataURL={placeholderBlur}
         priority={priority}
@@ -71,8 +72,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         loading={loading}
         sizes={sizes}
         src={src}
-        width={!fill ? width : undefined}
       />
-    </picture>
+    // </picture>
   )
 }
