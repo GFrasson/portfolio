@@ -159,6 +159,7 @@ export interface Project {
     [k: string]: unknown;
   };
   published: boolean;
+  order?: number | null;
   author?: (number | null) | User;
   images?:
     | {
@@ -276,6 +277,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   summary?: T;
   description?: T;
   published?: T;
+  order?: T;
   author?: T;
   images?:
     | T

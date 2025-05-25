@@ -5,6 +5,8 @@ import type { CollectionConfig } from 'payload'
 
 export const Project: CollectionConfig = {
   slug: 'projects',
+  // orderable: true,
+  defaultSort: 'order',
   access: {
     create: authenticated,
     read: adminOrAuthor,
@@ -12,7 +14,7 @@ export const Project: CollectionConfig = {
     delete: adminOrAuthor
   },
   admin: {
-    defaultColumns: ['title', 'summary'],
+    defaultColumns: ['title', 'summary', 'published', 'order'],
     useAsTitle: 'title',
   },
   fields: [
@@ -35,6 +37,10 @@ export const Project: CollectionConfig = {
       name: "published",
       type: "checkbox",
       required: true
+    },
+    {
+      name: 'order',
+      type: 'number'
     },
     {
       name: 'author',

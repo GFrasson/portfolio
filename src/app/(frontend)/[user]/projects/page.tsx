@@ -85,7 +85,8 @@ export default async function Projects({ params }: { params: Promise<Param> }) {
           }
         }
       ]
-    }
+    },
+    sort: ['order', 'createdAt']
   })
 
   return (
