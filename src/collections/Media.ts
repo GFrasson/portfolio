@@ -16,7 +16,8 @@ export const Media: CollectionConfig = {
       type: 'text',
     },
   ],
-  upload: {
-    staticDir: path.resolve(dirname, '../../public/media'),
-  },
+  upload: true
+  // upload: {
+  //   staticDir: path.resolve(dirname, '../../public/media'),
+  // },
 }
