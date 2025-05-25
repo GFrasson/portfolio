@@ -16,35 +16,38 @@ interface Params {
   id: string
 }
 
-export const dynamicParams = true;
+// export const dynamicParams = true;
+
+export const revalidate = 60;  // 1 minute
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise });
+  return [];
+  // const payload = await getPayload({ config: configPromise });
   
-  const userResult = await payload.find({
-    collection: 'users',
-    select: {
-      slug: true
-    }
-  });
+  // const userResult = await payload.find({
+  //   collection: 'users',
+  //   select: {
+  //     slug: true
+  //   }
+  // });
 
-  const projectsResult = await payload.find({
-    collection: 'projects',
-    depth: 1,
-    pagination: false,
-  });
+  // const projectsResult = await payload.find({
+  //   collection: 'projects',
+  //   depth: 1,
+  //   pagination: false,
+  // });
 
-  return (projectsResult.docs?.map(project => {
-    const userSlug = userResult.docs?.find(user => user.id === project.author);
-    if (!userSlug) {
-      return undefined;
-    }
+  // return (projectsResult.docs?.map(project => {
+  //   const userSlug = userResult.docs?.find(user => user.id === project.author);
+  //   if (!userSlug) {
+  //     return undefined;
+  //   }
 
-    return {
-      user: userSlug.slug,
-      id: String(project.id)
-    }
-  }) ?? []).filter(project => project !== undefined);
+  //   return {
+  //     user: userSlug.slug,
+  //     id: String(project.id)
+  //   }
+  // }) ?? []).filter(project => project !== undefined);
 }
 
 export default async function ProjectDetails({

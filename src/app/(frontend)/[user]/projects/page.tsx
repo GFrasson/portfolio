@@ -22,22 +22,26 @@ interface Param {
   user: string
 }
 
-export const dynamicParams = false
+// export const dynamicParams = false
+
+export const revalidate = 60;  // 1 minute
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise });
-    
-  const userResult = await payload.find({
-    collection: 'users',
-    depth: 1,
-    select: {
-      slug: true
-    }
-  });
+  return [];
 
-  return userResult.docs?.map(userDoc => ({
-    user: userDoc.slug
-  })) ?? [];
+  // const payload = await getPayload({ config: configPromise });
+    
+  // const userResult = await payload.find({
+  //   collection: 'users',
+  //   depth: 1,
+  //   select: {
+  //     slug: true
+  //   }
+  // });
+
+  // return userResult.docs?.map(userDoc => ({
+  //   user: userDoc.slug
+  // })) ?? [];
 }
 
 export default async function Projects({ params }: { params: Promise<Param> }) {
