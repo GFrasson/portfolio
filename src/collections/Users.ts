@@ -1,3 +1,4 @@
+import { admin } from '@/access/admin'
 import type { CollectionConfig } from 'payload'
 import slugify from 'slugify'
 
@@ -27,9 +28,13 @@ export const Users: CollectionConfig = {
       type: 'text',
       required: true,
       unique: true,
-      hidden: true,
       admin: {
         readOnly: true,
+      },
+      access: {
+        create: ({ req: { user } }) => admin(user),
+        update: ({ req: { user } }) => admin(user),
+        read: ({ req: { user } }) => admin(user)
       },
       hooks: {
         beforeChange: [

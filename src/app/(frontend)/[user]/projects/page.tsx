@@ -25,7 +25,19 @@ interface Param {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return [{ user: 'brenda' }, { user: 'gabriel' }]
+  const payload = await getPayload({ config: configPromise });
+    
+  const userResult = await payload.find({
+    collection: 'users',
+    depth: 1,
+    select: {
+      slug: true
+    }
+  });
+
+  return userResult.docs?.map(userDoc => ({
+    user: userDoc.slug
+  })) ?? [];
 }
 
 export default async function Projects({ params }: { params: Promise<Param> }) {
