@@ -19,32 +19,34 @@ interface Params {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise });
+  return [];
+
+  // const payload = await getPayload({ config: configPromise });
   
-  const userResult = await payload.find({
-    collection: 'users',
-    select: {
-      slug: true
-    }
-  });
+  // const userResult = await payload.find({
+  //   collection: 'users',
+  //   select: {
+  //     slug: true
+  //   }
+  // });
 
-  const projectsResult = await payload.find({
-    collection: 'projects',
-    depth: 1,
-    pagination: false,
-  });
+  // const projectsResult = await payload.find({
+  //   collection: 'projects',
+  //   depth: 1,
+  //   pagination: false,
+  // });
 
-  return projectsResult.docs?.map(project => {
-    const userSlug = userResult.docs?.find(user => user.id === project.author);
-    if (!userSlug) {
-      return {}
-    }
+  // return projectsResult.docs?.map(project => {
+  //   const userSlug = userResult.docs?.find(user => user.id === project.author);
+  //   if (!userSlug) {
+  //     return {}
+  //   }
 
-    return {
-      user: userSlug,
-      id: String(project.id)
-    }
-  });
+  //   return {
+  //     user: userSlug,
+  //     id: String(project.id)
+  //   }
+  // }) ?? [];
 }
 
 export default async function ProjectDetails({
