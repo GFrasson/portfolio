@@ -32,6 +32,11 @@ export const Project: CollectionConfig = {
       required: true
     },
     {
+      name: "published",
+      type: "checkbox",
+      required: true
+    },
+    {
       name: 'author',
       type: 'relationship',
       relationTo: 'users',

@@ -73,9 +73,18 @@ export default async function Projects({ params }: { params: Promise<Param> }) {
       images: true
     },
     where: {
-      author: {
-        equals: userDoc.id
-      }
+      and: [
+        {
+          author: {
+            equals: userDoc.id
+          }
+        },
+        {
+          published: {
+            equals: true
+          }
+        }
+      ]
     }
   })
 

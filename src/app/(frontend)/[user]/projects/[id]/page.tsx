@@ -96,6 +96,11 @@ export default async function ProjectDetails({
           author: {
             equals: userDoc.id
           }
+        },
+        {
+          published: {
+            equals: true
+          }
         }
       ]
     },
