@@ -8,7 +8,6 @@ import { NextPageButton } from './components/ChangePageButton/NextPageButton'
 import Link from 'next/link'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { Media } from '../../components/Media'
 import { ImageMedia } from '../../components/Media/ImageMedia'
 
 export interface Project {

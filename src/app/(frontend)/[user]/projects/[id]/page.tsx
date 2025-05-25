@@ -1,17 +1,14 @@
 import { Box, Heading, Section, Text } from '@radix-ui/themes'
 
-import { NextImage } from '@/app/(frontend)/components/NextImage'
 import { Carousel } from '@/app/(frontend)/components/Carousel'
 import styles from './styles.module.css'
 import { Suspense } from 'react'
 import { ProjectSkeletonLoading } from './components/ProjectSkeletonLoading'
 import purify from 'isomorphic-dompurify'
-import { getProject } from '@/utils/get-project'
-import { getProjectsIds } from '@/utils/get-project-ids'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { Media } from '@/app/(frontend)/components/Media'
 import { RichText } from '@payloadcms/richtext-lexical/react'
+import { ImageMedia } from '@/app/(frontend)/components/Media/ImageMedia'
 
 
 interface Params {
@@ -106,9 +103,9 @@ export default async function ProjectDetails({
           <Box className={styles.carouselBox} mb="6">
             <Carousel>
               {project.images?.map((image, index) => (
-                <Media
+                <ImageMedia
                   key={index}
-                  className={styles.image}
+                  imgClassName={styles.image}
                   resource={image.image}
                   width={1500}
                   height={1500}
