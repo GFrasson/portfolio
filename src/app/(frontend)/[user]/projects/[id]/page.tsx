@@ -16,7 +16,7 @@ interface Params {
   id: string
 }
 
-export const dynamicParams = false
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });
@@ -34,17 +34,17 @@ export async function generateStaticParams() {
     pagination: false,
   });
 
-  return projectsResult.docs?.map(project => {
+  return (projectsResult.docs?.map(project => {
     const userSlug = userResult.docs?.find(user => user.id === project.author);
     if (!userSlug) {
-      return {}
+      return undefined;
     }
 
     return {
-      user: userSlug,
+      user: userSlug.slug,
       id: String(project.id)
     }
-  }) ?? [];
+  }) ?? []).filter(project => project !== undefined);
 }
 
 export default async function ProjectDetails({
@@ -52,8 +52,26 @@ export default async function ProjectDetails({
 }: {
   params: Promise<Params>
 }) {
+  function sanitizeHTML(html: string) {
+    return purify.sanitize(html, { USE_PROFILES: { html: true } })
+  }
+
   const { id, user } = await params
   const payload = await getPayload({ config: configPromise })
+  
+  const userResult = await payload.find({
+    collection: 'users',
+    where: {
+      slug: {
+        equals: user,
+      },
+    },
+  })
+
+  const userDoc = userResult?.docs?.[0]
+  if (!userDoc) {
+    throw new Error('Usuário não encontrado')
+  }
 
   const projectDoc = await payload.find({
     collection: 'projects',
@@ -65,22 +83,33 @@ export default async function ProjectDetails({
       images: true
     },
     where: {
-      id: {
-        equals: Number(id)
-      }
+      and: [
+        {
+          id: {
+            equals: Number(id)
+          }
+        },
+        {
+          author: {
+            equals: userDoc.id
+          }
+        }
+      ]
     },
     limit: 1
   });
 
   if (projectDoc.docs.length === 0) {
-    throw new Error("Projeto não encontrado");
+    return (
+      <Section size="4">
+        <div className={styles.pageContainer}>
+          <Text>O projeto não foi encontrado</Text>
+        </div>
+      </Section>
+    )
   }
 
   const project = projectDoc.docs[0];
-
-  function sanitizeHTML(html: string) {
-    return purify.sanitize(html, { USE_PROFILES: { html: true } })
-  }
 
   if (!project) {
     return (
