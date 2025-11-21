@@ -41,37 +41,37 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   return (
     <Box style={{ overflowX: 'hidden' }}>
-        <HeroSection 
-            name={user.name}
-            avatar={avatarUrl}
-            role={user.role}
-            interests={user.interests}
-            shortDescription={user.shortDescription}
-        />
+      <HeroSection
+        name={user.name}
+        avatar={avatarUrl}
+        role={user.role}
+        interests={user.interests}
+        shortDescription={user.shortDescription}
+      />
 
-        <Separator size="4" />
+      <Separator size="4" />
 
-        <Section size="3">
-            <Container size="3">
-                <Grid columns={{ initial: '1', md: '2' }} gap="9">
-                    <Flex direction="column" gap="8">
-                        <BioSection biography={user.biography} />
-                        <ContactSection publicEmail={user.publicEmail} />
-                        <LinksSection links={user.links} />
-                        <ComplementaryInfoSection 
-                            complementaryInfo={user.complementaryInfo} 
-                            location={user.location}
-                        />
-                    </Flex>
+      <Section size="3">
+        <Container size="3">
+          <Grid columns={{ initial: '1', md: '2' }} gap="9">
+            <Flex direction="column" gap="8">
+              <BioSection biography={user.biography} />
+              <ContactSection publicEmail={user.publicEmail} />
+              <LinksSection links={user.links} />
+              <ComplementaryInfoSection
+                complementaryInfo={user.complementaryInfo}
+                location={user.location}
+              />
+            </Flex>
 
-                    <Flex direction="column" gap="8">
-                        <ExperienceSection experience={user.experience} />
-                        <EducationSection education={user.education} />
-                        <CertificatesSection certificates={user.certificates} />
-                    </Flex>
-                </Grid>
-            </Container>
-        </Section>
+            <Flex direction="column" gap="8">
+              <ExperienceSection experience={user.experience} />
+              <EducationSection education={user.education} />
+              <CertificatesSection certificates={user.certificates} />
+            </Flex>
+          </Grid>
+        </Container>
+      </Section>
     </Box>
   )
 }

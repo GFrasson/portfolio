@@ -14,15 +14,15 @@ export interface BioSectionProps {
 export function BioSection({ biography }: BioSectionProps) {
   return (
     <AnimatedSection direction="left">
-        <Flex direction="column" gap="4">
-            <SectionHeader 
-                icon={<ReaderIcon width="24" height="24" />} 
-                title="Biography" 
-            />
-            {biography && (
-                <RichText data={biography} />
-            )}
-        </Flex>
+      <Flex direction="column" gap="4">
+        <SectionHeader
+          icon={<ReaderIcon width="24" height="24" />}
+          title="Biography"
+        />
+        {biography && (
+          <RichText data={biography} />
+        )}
+      </Flex>
     </AnimatedSection>
   )
 }

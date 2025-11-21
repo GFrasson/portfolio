@@ -13,23 +13,23 @@ export interface LinksSectionProps {
 export function LinksSection({ links }: LinksSectionProps) {
   return (
     <AnimatedSection direction="left" delay={0.2}>
-        <Flex direction="column" gap="4">
-            <SectionHeader 
-                icon={<ExternalLinkIcon width="24" height="24" />} 
-                title="Links" 
-            />
-            {links && links.length > 0 && (
-                <Flex direction="column" gap="2">
-                    {links.map((link, index) => (
-                        <RadixLink key={index} href={link.url} size="3" color="ruby" target="_blank" rel="noopener noreferrer">
-                            <Flex align="center" gap="2">
-                                {link.label} <ExternalLinkIcon />
-                            </Flex>
-                        </RadixLink>
-                    ))}
+      <Flex direction="column" gap="4">
+        <SectionHeader
+          icon={<ExternalLinkIcon width="24" height="24" />}
+          title="Links"
+        />
+        {links && links.length > 0 && (
+          <Flex direction="column" gap="2">
+            {links.map((link, index) => (
+              <RadixLink key={index} href={link.url} size="3" color="ruby" target="_blank" rel="noopener noreferrer">
+                <Flex align="center" gap="2">
+                  {link.label} <ExternalLinkIcon />
                 </Flex>
-            )}
-        </Flex>
+              </RadixLink>
+            ))}
+          </Flex>
+        )}
+      </Flex>
     </AnimatedSection>
   )
 }
