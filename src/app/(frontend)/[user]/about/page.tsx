@@ -1,5 +1,3 @@
-'use client'
-
 import { Box, Container, Flex, Grid, Section, Separator } from '@radix-ui/themes'
 import * as React from 'react'
 import { HeroSection } from './components/HeroSection'
@@ -10,11 +8,46 @@ import { ComplementaryInfoSection } from './components/ComplementaryInfoSection'
 import { ExperienceSection } from './components/ExperienceSection'
 import { EducationSection } from './components/EducationSection'
 import { CertificatesSection } from './components/CertificatesSection'
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+import { notFound } from 'next/navigation'
 
-export default function AboutPage() {
+interface AboutPageProps {
+  params: Promise<{
+    user: string
+  }>
+}
+
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { user: userSlug } = await params
+  const payload = await getPayload({ config: configPromise })
+
+  const userResult = await payload.find({
+    collection: 'users',
+    where: {
+      slug: {
+        equals: userSlug,
+      },
+    },
+  })
+
+  const user = userResult.docs[0]
+
+  if (!user) {
+    notFound()
+  }
+
+  const avatarUrl = typeof user.avatar === 'object' && user.avatar?.url ? user.avatar.url : undefined
+
   return (
     <Box style={{ overflowX: 'hidden' }}>
-        <HeroSection />
+        <HeroSection 
+            name={user.name}
+            avatar={avatarUrl}
+            role={user.role}
+            interests={user.interests}
+            shortDescription={user.shortDescription}
+        />
 
         <Separator size="4" />
 
@@ -22,16 +55,19 @@ export default function AboutPage() {
             <Container size="3">
                 <Grid columns={{ initial: '1', md: '2' }} gap="9">
                     <Flex direction="column" gap="8">
-                        <BioSection />
-                        <ContactSection />
-                        <LinksSection />
-                        <ComplementaryInfoSection />
+                        <BioSection biography={user.biography} />
+                        <ContactSection publicEmail={user.publicEmail} />
+                        <LinksSection links={user.links} />
+                        <ComplementaryInfoSection 
+                            complementaryInfo={user.complementaryInfo} 
+                            location={user.location}
+                        />
                     </Flex>
 
                     <Flex direction="column" gap="8">
-                        <ExperienceSection />
-                        <EducationSection />
-                        <CertificatesSection />
+                        <ExperienceSection experience={user.experience} />
+                        <EducationSection education={user.education} />
+                        <CertificatesSection certificates={user.certificates} />
                     </Flex>
                 </Grid>
             </Container>

@@ -1,11 +1,16 @@
 'use client'
 
-import { Badge, Flex } from '@radix-ui/themes'
+import { Badge, Flex, Link } from '@radix-ui/themes'
 import { CodeIcon } from '@radix-ui/react-icons'
 import { AnimatedSection } from '@/app/(frontend)/components/AnimatedSection'
 import { SectionHeader } from '@/app/(frontend)/components/SectionHeader'
+import type { User } from '@/payload-types'
 
-export function CertificatesSection() {
+export interface CertificatesSectionProps {
+  certificates?: User['certificates']
+}
+
+export function CertificatesSection({ certificates }: CertificatesSectionProps) {
   return (
     <AnimatedSection direction="right" delay={0.3}>
         <Flex direction="column" gap="4">
@@ -14,11 +19,23 @@ export function CertificatesSection() {
                 title="Certificates" 
             />
             
-            <Flex gap="2" wrap="wrap">
-                <Badge size="2" variant="surface" color="green">AWS Certified Cloud Practitioner</Badge>
-                <Badge size="2" variant="surface" color="blue">Meta Frontend Developer</Badge>
-                <Badge size="2" variant="surface" color="orange">Google UX Design</Badge>
-            </Flex>
+            {certificates && certificates.length > 0 && (
+                <Flex gap="2" wrap="wrap">
+                    {certificates.map((cert, index) => (
+                        cert.url ? (
+                            <Link key={index} href={cert.url} target="_blank" rel="noopener noreferrer">
+                                <Badge size="2" variant="surface" color="green" style={{ cursor: 'pointer' }}>
+                                    {cert.name}
+                                </Badge>
+                            </Link>
+                        ) : (
+                            <Badge key={index} size="2" variant="surface" color="green">
+                                {cert.name}
+                            </Badge>
+                        )
+                    ))}
+                </Flex>
+            )}
         </Flex>
     </AnimatedSection>
   )

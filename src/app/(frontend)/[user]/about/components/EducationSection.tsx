@@ -1,12 +1,18 @@
 'use client'
 
-import { Flex, Text } from '@radix-ui/themes'
+import { Flex } from '@radix-ui/themes'
 import { BackpackIcon } from '@radix-ui/react-icons'
 import { ExpandableCard } from '@/app/(frontend)/components/ExpandableCard'
 import { AnimatedSection } from '@/app/(frontend)/components/AnimatedSection'
 import { SectionHeader } from '@/app/(frontend)/components/SectionHeader'
+import { RichText } from '@payloadcms/richtext-lexical/react'
+import type { User } from '@/payload-types'
 
-export function EducationSection() {
+export interface EducationSectionProps {
+  education?: User['education']
+}
+
+export function EducationSection({ education }: EducationSectionProps) {
   return (
     <AnimatedSection direction="right" delay={0.2}>
         <Flex direction="column" gap="4">
@@ -15,17 +21,22 @@ export function EducationSection() {
                 title="Education" 
             />
             
-            <ExpandableCard 
-                title="Computer Science, BS" 
-                date="2017 - 2021"
-                company="University of Technology"
-            >
-                <Text size="2" color="gray">
-                    - Graduated with Honors.<br/>
-                    - Focus on Human-Computer Interaction.<br/>
-                    - Capstone Project: Accessible Web Navigation Tool.
-                </Text>
-            </ExpandableCard>
+            {education && education.length > 0 && (
+                <Flex direction="column" gap="3">
+                    {education.map((item, index) => (
+                        <ExpandableCard 
+                            key={index}
+                            title={item.degree}
+                            date={item.date}
+                            company={item.institution}
+                        >
+                            {item.description && (
+                                <RichText data={item.description} />
+                            )}
+                        </ExpandableCard>
+                    ))}
+                </Flex>
+            )}
         </Flex>
     </AnimatedSection>
   )
