@@ -236,6 +236,19 @@ export interface User {
         id?: string | null;
       }[]
     | null;
+  languages?:
+    | {
+        language: string;
+        level: 'Nativo' | 'Fluente' | 'Avançado' | 'Intermediário' | 'Básico';
+        id?: string | null;
+      }[]
+    | null;
+  skills?:
+    | {
+        name: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -426,6 +439,19 @@ export interface UsersSelect<T extends boolean = true> {
     | {
         label?: T;
         url?: T;
+        id?: T;
+      };
+  languages?:
+    | T
+    | {
+        language?: T;
+        level?: T;
+        id?: T;
+      };
+  skills?:
+    | T
+    | {
+        name?: T;
         id?: T;
       };
   updatedAt?: T;

@@ -8,6 +8,8 @@ import { ComplementaryInfoSection } from './components/ComplementaryInfoSection'
 import { ExperienceSection } from './components/ExperienceSection'
 import { EducationSection } from './components/EducationSection'
 import { CertificatesSection } from './components/CertificatesSection'
+import { LanguagesSection } from './components/LanguagesSection'
+import { SkillsSection } from './components/SkillsSection'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
@@ -58,6 +60,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <BioSection biography={user.biography} />
               <ContactSection publicEmail={user.publicEmail} contacts={user.contacts} />
               <LinksSection links={user.links} />
+              <LanguagesSection languages={user.languages} />
               <ComplementaryInfoSection
                 complementaryInfo={user.complementaryInfo}
                 location={user.location}
@@ -65,6 +68,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
             </Flex>
 
             <Flex direction="column" gap="8">
+              <SkillsSection skills={user.skills} />
               <ExperienceSection experience={user.experience} />
               <EducationSection education={user.education} />
               <CertificatesSection certificates={user.certificates} />

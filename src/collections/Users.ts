@@ -256,6 +256,44 @@ export const Users: CollectionConfig = {
             },
           ],
         },
+        {
+          label: 'Languages',
+          fields: [
+            {
+              name: 'languages',
+              type: 'array',
+              fields: [
+                {
+                  name: 'language',
+                  type: 'text',
+                  required: true,
+                },
+                {
+                  name: 'level',
+                  type: 'select',
+                  options: ['Nativo', 'Fluente', 'Avançado', 'Intermediário', 'Básico'],
+                  required: true,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: 'Skills',
+          fields: [
+            {
+              name: 'skills',
+              type: 'array',
+              fields: [
+                {
+                  name: 'name',
+                  type: 'text',
+                  required: true,
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],
