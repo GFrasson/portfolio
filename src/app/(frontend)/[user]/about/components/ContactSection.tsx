@@ -17,7 +17,7 @@ export function ContactSection({ publicEmail, contacts }: ContactSectionProps) {
   const whatsappLink = `https://wa.me/${whatsappPhoneFormat}?text=Olá! Gostei do seu portfólio e queria conversar com você.`
 
   return (
-    <AnimatedSection direction="left" delay={0.1}>
+    <AnimatedSection direction="right" delay={0.1}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<EnvelopeClosedIcon width="24" height="24" />}

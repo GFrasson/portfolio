@@ -14,7 +14,7 @@ export function LanguagesSection({ languages }: LanguagesSectionProps) {
   if (!languages || languages.length === 0) return null
 
   return (
-    <AnimatedSection direction="left" delay={0.3}>
+    <AnimatedSection direction="right" delay={0.3}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<GlobeIcon width="24" height="24" />}

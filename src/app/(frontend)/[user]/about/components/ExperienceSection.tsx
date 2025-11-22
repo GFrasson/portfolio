@@ -14,7 +14,7 @@ export interface ExperienceSectionProps {
 
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
   return (
-    <AnimatedSection direction="right">
+    <AnimatedSection direction="left">
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<RocketIcon width="24" height="24" />}

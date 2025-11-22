@@ -12,7 +12,7 @@ export interface CertificatesSectionProps {
 
 export function CertificatesSection({ certificates }: CertificatesSectionProps) {
   return (
-    <AnimatedSection direction="right" delay={0.3}>
+    <AnimatedSection direction="left" delay={0.3}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<LayersIcon width="24" height="24" />}

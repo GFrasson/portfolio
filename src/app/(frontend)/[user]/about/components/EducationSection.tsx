@@ -14,7 +14,7 @@ export interface EducationSectionProps {
 
 export function EducationSection({ education }: EducationSectionProps) {
   return (
-    <AnimatedSection direction="right" delay={0.2}>
+    <AnimatedSection direction="left" delay={0.2}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<BackpackIcon width="24" height="24" />}

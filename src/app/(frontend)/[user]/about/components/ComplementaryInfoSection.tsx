@@ -14,7 +14,7 @@ export interface ComplementaryInfoSectionProps {
 
 export function ComplementaryInfoSection({ complementaryInfo, location }: ComplementaryInfoSectionProps) {
   return (
-    <AnimatedSection direction="left" delay={0.3}>
+    <AnimatedSection direction="right" delay={0.3}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<FileTextIcon width="24" height="24" />}
