@@ -164,6 +164,42 @@ export const Users: CollectionConfig = {
           ],
         },
         {
+          label: 'Contacts',
+          fields: [
+            {
+              name: 'contacts',
+              type: 'group',
+              fields: [
+                {
+                  name: 'linkedin',
+                  type: 'text',
+                  label: 'LinkedIn URL',
+                },
+                {
+                  name: 'github',
+                  type: 'text',
+                  label: 'GitHub URL',
+                },
+                {
+                  name: 'instagram',
+                  type: 'text',
+                  label: 'Instagram URL',
+                },
+                {
+                  name: 'lattes',
+                  type: 'text',
+                  label: 'Lattes URL',
+                },
+                {
+                  name: 'phone',
+                  type: 'text',
+                  label: 'Phone',
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: 'Certificates',
           fields: [
             {

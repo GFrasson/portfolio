@@ -56,7 +56,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
           <Grid columns={{ initial: '1', md: '2' }} gap="9">
             <Flex direction="column" gap="8">
               <BioSection biography={user.biography} />
-              <ContactSection publicEmail={user.publicEmail} />
+              <ContactSection publicEmail={user.publicEmail} contacts={user.contacts} />
               <LinksSection links={user.links} />
               <ComplementaryInfoSection
                 complementaryInfo={user.complementaryInfo}

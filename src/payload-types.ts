@@ -212,6 +212,13 @@ export interface User {
         id?: string | null;
       }[]
     | null;
+  contacts?: {
+    linkedin?: string | null;
+    github?: string | null;
+    instagram?: string | null;
+    lattes?: string | null;
+    phone?: string | null;
+  };
   certificates?:
     | {
         name: string;
@@ -394,6 +401,15 @@ export interface UsersSelect<T extends boolean = true> {
         date?: T;
         description?: T;
         id?: T;
+      };
+  contacts?:
+    | T
+    | {
+        linkedin?: T;
+        github?: T;
+        instagram?: T;
+        lattes?: T;
+        phone?: T;
       };
   certificates?:
     | T
