@@ -25,44 +25,56 @@ export function ExpandableCard({ title, subtitle, date, company, children }: Exp
         </Flex>
         {company && <Text size="2" color="ruby">{company}</Text>}
         {subtitle && <Text size="2" mt="2">{subtitle}</Text>}
-        
+
         <Box mt="2">
-            <AnimatePresence initial={false}>
+          <AnimatePresence initial={false}>
             {isExpanded && (
-                <motion.div
+              <motion.div
                 initial="collapsed"
                 animate="open"
                 exit="collapsed"
                 variants={{
-                    open: { opacity: 1, height: 'auto' },
-                    collapsed: { opacity: 0, height: 0 }
+                  open: { opacity: 1, height: 'auto' },
+                  collapsed: { opacity: 0, height: 0 }
                 }}
                 transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-                >
+              >
                 <Box pt="2" pb="2">
-                    {children}
+                  {children}
                 </Box>
-                </motion.div>
+              </motion.div>
             )}
-            </AnimatePresence>
+          </AnimatePresence>
         </Box>
 
-        <Flex justify="end" mt="2">
-          <IconButton 
-            variant="ghost" 
-            color="gray" 
+        <Flex justify="end" align="center" mt="2">
+          <IconButton
+            variant="ghost"
+            color="gray"
             onClick={() => setIsExpanded(!isExpanded)}
             aria-label={isExpanded ? "Collapse" : "Expand"}
+            style={{ cursor: "pointer" }}
           >
-            <motion.div
-              animate={{ rotate: isExpanded ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-                {isExpanded ? <MinusIcon /> : <PlusIcon />}
-            </motion.div>
+            <Flex align="center" gap="1">
+              <Text size="1">
+                {isExpanded ? "Ver menos" : "Ver mais"}
+              </Text>
+
+              <motion.div
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                {isExpanded ? (
+                  <MinusIcon />
+                ) : (
+                  <PlusIcon />
+                )}
+              </motion.div>
+            </Flex>
           </IconButton>
         </Flex>
-      </Flex>
-    </Card>
+      </Flex >
+    </Card >
   )
 }
