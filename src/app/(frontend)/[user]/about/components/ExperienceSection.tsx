@@ -18,7 +18,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<RocketIcon width="24" height="24" />}
-          title="Experience"
+          title="Experiência"
         />
 
         {experience && experience.length > 0 && (

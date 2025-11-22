@@ -18,7 +18,7 @@ export function EducationSection({ education }: EducationSectionProps) {
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<BackpackIcon width="24" height="24" />}
-          title="Education"
+          title="Histórico Acadêmico"
         />
 
         {education && education.length > 0 && (

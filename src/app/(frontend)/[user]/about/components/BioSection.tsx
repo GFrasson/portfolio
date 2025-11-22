@@ -17,7 +17,7 @@ export function BioSection({ biography }: BioSectionProps) {
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<ReaderIcon width="24" height="24" />}
-          title="Biography"
+          title="Biografia"
         />
         {biography && (
           <RichText data={biography} />

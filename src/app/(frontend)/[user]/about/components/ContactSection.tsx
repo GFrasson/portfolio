@@ -16,7 +16,7 @@ export function ContactSection({ publicEmail }: ContactSectionProps) {
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<EnvelopeClosedIcon width="24" height="24" />}
-          title="Contact"
+          title="Contato"
         />
         <Flex direction="column" gap="3">
           {publicEmail && (

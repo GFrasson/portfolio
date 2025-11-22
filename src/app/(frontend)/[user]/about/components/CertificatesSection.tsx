@@ -16,7 +16,7 @@ export function CertificatesSection({ certificates }: CertificatesSectionProps) 
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<CodeIcon width="24" height="24" />}
-          title="Certificates"
+          title="Certificados"
         />
 
         {certificates && certificates.length > 0 && (

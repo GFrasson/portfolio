@@ -18,7 +18,7 @@ export function ComplementaryInfoSection({ complementaryInfo, location }: Comple
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<FileTextIcon width="24" height="24" />}
-          title="Complementary Info"
+          title="Informações Complementares"
         />
         {complementaryInfo && (
           <RichText data={complementaryInfo} />
