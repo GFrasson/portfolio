@@ -215,8 +215,9 @@ export interface User {
   certificates?:
     | {
         name: string;
-        issuer: string;
-        date: string;
+        type?: string | null;
+        issuer?: string | null;
+        date?: string | null;
         url?: string | null;
         id?: string | null;
       }[]
@@ -398,6 +399,7 @@ export interface UsersSelect<T extends boolean = true> {
     | T
     | {
         name?: T;
+        type?: T;
         issuer?: T;
         date?: T;
         url?: T;

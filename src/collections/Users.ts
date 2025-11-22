@@ -176,18 +176,24 @@ export const Users: CollectionConfig = {
                   required: true,
                 },
                 {
+                  name: 'type',
+                  type: 'text',
+                  required: false,
+                },
+                {
                   name: 'issuer',
                   type: 'text',
-                  required: true,
+                  required: false,
                 },
                 {
                   name: 'date',
                   type: 'text',
-                  required: true,
+                  required: false,
                 },
                 {
                   name: 'url',
                   type: 'text',
+                  required: false,
                 },
               ],
             },
