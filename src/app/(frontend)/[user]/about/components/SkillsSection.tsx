@@ -11,7 +11,9 @@ export interface SkillsSectionProps {
 }
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
-  if (!skills || skills.length === 0) return null
+  if (!skills || skills.length === 0) {
+    return null;
+  }
 
   return (
     <AnimatedSection direction="left" delay={0.1}>

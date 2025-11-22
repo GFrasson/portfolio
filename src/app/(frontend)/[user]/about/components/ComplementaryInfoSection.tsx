@@ -13,6 +13,10 @@ export interface ComplementaryInfoSectionProps {
 }
 
 export function ComplementaryInfoSection({ complementaryInfo, location }: ComplementaryInfoSectionProps) {
+  if (!complementaryInfo && !location) {
+    return null;
+  }
+
   return (
     <AnimatedSection direction="right" delay={0.3}>
       <Flex direction="column" gap="4">

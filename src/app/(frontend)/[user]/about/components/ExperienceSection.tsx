@@ -13,6 +13,10 @@ export interface ExperienceSectionProps {
 }
 
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
+  if (!experience || experience.length === 0) {
+    return null;
+  }
+
   return (
     <AnimatedSection direction="left">
       <Flex direction="column" gap="4">
@@ -21,23 +25,21 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
           title="Experiência"
         />
 
-        {experience && experience.length > 0 && (
-          <Flex direction="column" gap="3">
-            {experience.map((item, index) => (
-              <ExpandableCard
-                key={index}
-                title={item.title}
-                date={item.date}
-                company={item.company}
-                subtitle={item.subtitle || undefined}
-              >
-                {item.description && (
-                  <RichText data={item.description} />
-                )}
-              </ExpandableCard>
-            ))}
-          </Flex>
-        )}
+        <Flex direction="column" gap="3">
+          {experience.map((item, index) => (
+            <ExpandableCard
+              key={index}
+              title={item.title}
+              date={item.date}
+              company={item.company}
+              subtitle={item.subtitle || undefined}
+            >
+              {item.description && (
+                <RichText data={item.description} />
+              )}
+            </ExpandableCard>
+          ))}
+        </Flex>
       </Flex>
     </AnimatedSection>
   )

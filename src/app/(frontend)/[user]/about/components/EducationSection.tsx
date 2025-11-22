@@ -13,6 +13,10 @@ export interface EducationSectionProps {
 }
 
 export function EducationSection({ education }: EducationSectionProps) {
+  if (!education || education.length === 0) {
+    return null;
+  }
+
   return (
     <AnimatedSection direction="left" delay={0.2}>
       <Flex direction="column" gap="4">
@@ -21,22 +25,20 @@ export function EducationSection({ education }: EducationSectionProps) {
           title="Histórico Acadêmico"
         />
 
-        {education && education.length > 0 && (
-          <Flex direction="column" gap="3">
-            {education.map((item, index) => (
-              <ExpandableCard
-                key={index}
-                title={item.degree}
-                date={item.date}
-                company={item.institution}
-              >
-                {item.description && (
-                  <RichText data={item.description} />
-                )}
-              </ExpandableCard>
-            ))}
-          </Flex>
-        )}
+        <Flex direction="column" gap="3">
+          {education.map((item, index) => (
+            <ExpandableCard
+              key={index}
+              title={item.degree}
+              date={item.date}
+              company={item.institution}
+            >
+              {item.description && (
+                <RichText data={item.description} />
+              )}
+            </ExpandableCard>
+          ))}
+        </Flex>
       </Flex>
     </AnimatedSection>
   )

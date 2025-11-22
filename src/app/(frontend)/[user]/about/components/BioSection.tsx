@@ -12,6 +12,10 @@ export interface BioSectionProps {
 }
 
 export function BioSection({ biography }: BioSectionProps) {
+  if (!biography) {
+    return null;
+  }
+
   return (
     <AnimatedSection direction="right">
       <Flex direction="column" gap="4">
@@ -19,9 +23,7 @@ export function BioSection({ biography }: BioSectionProps) {
           icon={<ReaderIcon width="24" height="24" />}
           title="Biografia"
         />
-        {biography && (
-          <RichText data={biography} />
-        )}
+        <RichText data={biography} />
       </Flex>
     </AnimatedSection>
   )

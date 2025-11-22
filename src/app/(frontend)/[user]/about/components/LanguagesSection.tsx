@@ -11,7 +11,9 @@ export interface LanguagesSectionProps {
 }
 
 export function LanguagesSection({ languages }: LanguagesSectionProps) {
-  if (!languages || languages.length === 0) return null
+  if (!languages || languages.length === 0) {
+    return null;
+  }
 
   return (
     <AnimatedSection direction="right" delay={0.3}>

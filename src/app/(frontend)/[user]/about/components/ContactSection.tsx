@@ -13,6 +13,10 @@ export interface ContactSectionProps {
 }
 
 export function ContactSection({ publicEmail, contacts }: ContactSectionProps) {
+  if (!publicEmail && !contacts?.phone && !contacts?.linkedin && !contacts?.instagram && !contacts?.lattes && !contacts?.github) {
+    return null;
+  }
+
   const whatsappPhoneFormat = contacts?.phone ? contacts?.phone.replace(/\D/g, '') : ''
   const whatsappLink = `https://wa.me/${whatsappPhoneFormat}?text=Olá! Gostei do seu portfólio e queria conversar com você.`
 
