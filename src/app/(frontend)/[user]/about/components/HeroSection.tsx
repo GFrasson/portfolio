@@ -47,7 +47,7 @@ export function HeroSection({ avatar, name, role, interests, shortDescription }:
           <Flex direction="column" gap="6" align="center" style={{ textAlign: 'center' }}>
             <motion.div variants={itemVariants}>
               <Avatar
-                size="9"
+                size={{ initial: '8', md: '9' }}
                 src={avatar || ''}
                 fallback={name?.[0] || 'U'}
                 radius="full"
@@ -56,7 +56,7 @@ export function HeroSection({ avatar, name, role, interests, shortDescription }:
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <Heading as="h1" size="9" weight="bold" style={{ lineHeight: '1.1' }}>
+              <Heading as="h1" size={{ initial: '8', md: '9' }} weight="bold" style={{ lineHeight: '1.1' }}>
                 {name}
               </Heading>
               {role && (

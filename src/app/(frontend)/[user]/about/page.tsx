@@ -53,9 +53,16 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
       <Separator size="4" />
 
-      <Section size="3">
+      <Section size={{ initial: '2', md: '3' }} px="8">
         <Container size="3">
-          <Grid columns={{ initial: '1', md: '2' }} gap="9">
+          <Grid columns={{ initial: '1', md: '2' }} gap={{ initial: '5', md: '9' }}>
+            <Flex direction="column" gap="8">
+              <SkillsSection skills={user.skills} />
+              <ExperienceSection experience={user.experience} />
+              <EducationSection education={user.education} />
+              <CertificatesSection certificates={user.certificates} />
+            </Flex>
+
             <Flex direction="column" gap="8">
               <BioSection biography={user.biography} />
               <ContactSection publicEmail={user.publicEmail} contacts={user.contacts} />
@@ -65,13 +72,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
                 complementaryInfo={user.complementaryInfo}
                 location={user.location}
               />
-            </Flex>
-
-            <Flex direction="column" gap="8">
-              <SkillsSection skills={user.skills} />
-              <ExperienceSection experience={user.experience} />
-              <EducationSection education={user.education} />
-              <CertificatesSection certificates={user.certificates} />
             </Flex>
           </Grid>
         </Container>

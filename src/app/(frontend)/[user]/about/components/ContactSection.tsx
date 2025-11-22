@@ -25,7 +25,7 @@ export function ContactSection({ publicEmail, contacts }: ContactSectionProps) {
         />
         <Flex direction="column" gap="3">
           {(publicEmail || contacts?.phone) && (
-            <Flex align="center" gap="3">
+            <Flex align="center" gap="3" wrap="wrap">
               <Link href={`mailto:${publicEmail}`}>
                 <Button variant="soft" color="ruby" highContrast style={{ cursor: 'pointer' }}>
                   <EnvelopeClosedIcon />
