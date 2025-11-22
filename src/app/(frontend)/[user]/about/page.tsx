@@ -57,21 +57,21 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <Container size="3">
           <Grid columns={{ initial: '1', md: '2' }} gap={{ initial: '5', md: '9' }}>
             <Flex direction="column" gap="8">
-              <SkillsSection skills={user.skills} />
-              <ExperienceSection experience={user.experience} />
-              <EducationSection education={user.education} />
-              <CertificatesSection certificates={user.certificates} />
-            </Flex>
-
-            <Flex direction="column" gap="8">
               <BioSection biography={user.biography} />
-              <ContactSection publicEmail={user.publicEmail} contacts={user.contacts} />
-              <LinksSection links={user.links} />
+              <ExperienceSection experiences={user.experience} />
               <LanguagesSection languages={user.languages} />
               <ComplementaryInfoSection
                 complementaryInfo={user.complementaryInfo}
                 location={user.location}
               />
+            </Flex>
+
+            <Flex direction="column" gap="8">
+              <SkillsSection skills={user.skills} />
+              <EducationSection education={user.education} />
+              <CertificatesSection certificates={user.certificates} />
+              <ContactSection publicEmail={user.publicEmail} contacts={user.contacts} />
+              <LinksSection links={user.links} />
             </Flex>
           </Grid>
         </Container>

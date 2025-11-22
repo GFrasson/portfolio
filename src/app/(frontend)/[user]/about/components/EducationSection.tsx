@@ -18,7 +18,7 @@ export function EducationSection({ education }: EducationSectionProps) {
   }
 
   return (
-    <AnimatedSection direction="left" delay={0.2}>
+    <AnimatedSection direction="right" delay={0.1}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<BackpackIcon width="24" height="24" />}
@@ -33,7 +33,7 @@ export function EducationSection({ education }: EducationSectionProps) {
               date={item.date}
               company={item.institution}
             >
-              {item.description && (
+              {item.hasDescription && item.description && (
                 <RichText data={item.description} />
               )}
             </ExpandableCard>

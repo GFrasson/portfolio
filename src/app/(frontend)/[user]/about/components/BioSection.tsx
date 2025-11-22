@@ -17,7 +17,7 @@ export function BioSection({ biography }: BioSectionProps) {
   }
 
   return (
-    <AnimatedSection direction="right">
+    <AnimatedSection direction="left">
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<ReaderIcon width="24" height="24" />}

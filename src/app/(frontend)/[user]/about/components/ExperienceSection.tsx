@@ -9,16 +9,16 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import type { User } from '@/payload-types'
 
 export interface ExperienceSectionProps {
-  experience?: User['experience']
+  experiences?: User['experience']
 }
 
-export function ExperienceSection({ experience }: ExperienceSectionProps) {
-  if (!experience || experience.length === 0) {
+export function ExperienceSection({ experiences }: ExperienceSectionProps) {
+  if (!experiences || experiences.length === 0) {
     return null;
   }
 
   return (
-    <AnimatedSection direction="left">
+    <AnimatedSection direction="left" delay={0.1}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<RocketIcon width="24" height="24" />}
@@ -26,7 +26,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
         />
 
         <Flex direction="column" gap="3">
-          {experience.map((item, index) => (
+          {experiences.map((item, index) => (
             <ExpandableCard
               key={index}
               title={item.title}
@@ -34,7 +34,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
               company={item.company}
               subtitle={item.subtitle || undefined}
             >
-              {item.description && (
+              {item.hasDescription && item.description && (
                 <RichText data={item.description} />
               )}
             </ExpandableCard>

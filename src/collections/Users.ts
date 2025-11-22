@@ -127,8 +127,16 @@ export const Users: CollectionConfig = {
                   type: 'text',
                 },
                 {
+                  name: 'hasDescription',
+                  type: 'checkbox',
+                  required: true
+                },
+                {
                   name: 'description',
                   type: 'richText',
+                  admin: {
+                    condition: (_, { hasDescription } = {}) => hasDescription,
+                  }
                 },
               ],
             },
@@ -157,8 +165,16 @@ export const Users: CollectionConfig = {
                   required: true,
                 },
                 {
+                  name: 'hasDescription',
+                  type: 'checkbox',
+                  required: true
+                },
+                {
                   name: 'description',
                   type: 'richText',
+                  admin: {
+                    condition: (_, { hasDescription } = {}) => hasDescription,
+                  }
                 },
               ],
             },

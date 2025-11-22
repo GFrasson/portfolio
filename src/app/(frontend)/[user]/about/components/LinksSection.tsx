@@ -16,7 +16,7 @@ export function LinksSection({ links }: LinksSectionProps) {
   }
 
   return (
-    <AnimatedSection direction="right" delay={0.2}>
+    <AnimatedSection direction="right" delay={0.4}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<ExternalLinkIcon width="24" height="24" />}

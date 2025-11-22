@@ -171,6 +171,7 @@ export interface User {
         company: string;
         date: string;
         subtitle?: string | null;
+        hasDescription: boolean;
         description?: {
           root: {
             type: string;
@@ -194,6 +195,7 @@ export interface User {
         degree: string;
         institution: string;
         date: string;
+        hasDescription: boolean;
         description?: {
           root: {
             type: string;
@@ -403,6 +405,7 @@ export interface UsersSelect<T extends boolean = true> {
         company?: T;
         date?: T;
         subtitle?: T;
+        hasDescription?: T;
         description?: T;
         id?: T;
       };
@@ -412,6 +415,7 @@ export interface UsersSelect<T extends boolean = true> {
         degree?: T;
         institution?: T;
         date?: T;
+        hasDescription?: T;
         description?: T;
         id?: T;
       };

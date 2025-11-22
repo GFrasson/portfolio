@@ -16,7 +16,7 @@ export function LanguagesSection({ languages }: LanguagesSectionProps) {
   }
 
   return (
-    <AnimatedSection direction="right" delay={0.3}>
+    <AnimatedSection direction="left" delay={0.2}>
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<GlobeIcon width="24" height="24" />}

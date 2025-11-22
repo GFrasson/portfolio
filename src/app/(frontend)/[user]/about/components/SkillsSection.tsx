@@ -16,7 +16,7 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
   }
 
   return (
-    <AnimatedSection direction="left" delay={0.1}>
+    <AnimatedSection direction="right">
       <Flex direction="column" gap="4">
         <SectionHeader
           icon={<LightningBoltIcon width="24" height="24" />}
