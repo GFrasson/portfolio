@@ -1,6 +1,5 @@
 import { admin } from '@/access/admin'
 import type { CollectionConfig } from 'payload'
-import slugify from 'slugify'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -9,8 +8,6 @@ export const Users: CollectionConfig = {
   },
   auth: true,
   fields: [
-    // Email added by default
-    // Add more fields as needed
     {
       type: 'tabs',
       tabs: [
@@ -34,22 +31,26 @@ export const Users: CollectionConfig = {
               type: 'text',
               required: true,
               unique: true,
-              admin: {
-                readOnly: true,
-              },
-              access: {
-                create: ({ req: { user } }) => admin(user),
-                update: ({ req: { user } }) => admin(user),
-                read: ({ req: { user } }) => admin(user),
-              },
-              hooks: {
-                beforeChange: [
-                  ({ data }) => {
-                    if (data?.name) {
-                      return slugify(data.name, { lower: true, strict: true })
-                    }
-                  },
-                ],
+              validate: (value: string | null | undefined) => {
+                if (!value || typeof value !== 'string') {
+                  return 'Slug deve ser um texto';
+                }
+
+                const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+                if (!slugRegex.test(value)) {
+                  return 'Slug deve conter apenas letras minúsculas, números e hífens';
+                }
+
+                if (value.length < 3) {
+                  return 'Slug deve ter no mínimo 3 caracteres';
+                }
+
+                if (value.length > 20) {
+                  return 'Slug deve ter no máximo 20 caracteres';
+                }
+
+                return true
               },
             },
             {
