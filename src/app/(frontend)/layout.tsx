@@ -1,10 +1,11 @@
-import { Theme } from '@radix-ui/themes'
 import type { Metadata } from 'next'
 import { Solway } from 'next/font/google'
 
 import '@radix-ui/themes/styles.css'
 import { NavigationBar } from './components/NavigationBar'
 import { PagesProvider } from './contexts/PageContext'
+import { ThemeProvider } from './components/ThemeProvider'
+import { RadixThemeWrapper } from './components/RadixThemeWrapper'
 import '@/styles/global.css'
 
 const solway = Solway({
@@ -28,20 +29,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head></head>
       <body className={`${solway.variable}`}>
-        <Theme
-          appearance="light"
-          accentColor="ruby"
-          grayColor="mauve"
-          panelBackground="translucent"
-          scaling="100%"
-          radius="medium"
-        >
-          <NavigationBar />
-          <PagesProvider>{children}</PagesProvider>
-        </Theme>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <RadixThemeWrapper>
+            <NavigationBar />
+            <PagesProvider>{children}</PagesProvider>
+          </RadixThemeWrapper>
+        </ThemeProvider>
       </body>
     </html>
   )
